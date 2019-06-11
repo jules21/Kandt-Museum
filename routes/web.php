@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('/artifact', 'ArtifactController');
+Route::resource('/artifactcategories', 'ArtifactCategoryController');
 
 Auth::routes();
 

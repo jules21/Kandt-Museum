@@ -19,6 +19,8 @@ class CreateArtifactsTable extends Migration
             $table->string('description');
             $table->string('photo');
             $table->date('year');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('artifact_categories');
             $table->timestamps();
         });
     }

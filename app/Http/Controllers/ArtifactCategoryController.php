@@ -15,6 +15,8 @@ class ArtifactCategoryController extends Controller
     public function index()
     {
         //
+        $artifactcategories = ArtifactCategory::all();
+        return view('artifact.category.index',['artifactcategories'=>$artifactcategories]);
     }
 
     /**
@@ -25,6 +27,7 @@ class ArtifactCategoryController extends Controller
     public function create()
     {
         //
+        return view('artifact.category.create');
     }
 
     /**
@@ -36,6 +39,22 @@ class ArtifactCategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            ]);
+           $artifactCategory =ArtifactCategory::create(
+           [
+               'name' => $request->input('name'),
+           ]);
+   
+           if($artifactCategory)
+           {
+               return back()->with('success', 'You have created new artifact Category named '. $artifactCategory->name);
+           }
+           else
+           {
+               return back()->withInput();
+           }
     }
 
     /**
@@ -47,6 +66,7 @@ class ArtifactCategoryController extends Controller
     public function show(ArtifactCategory $artifactCategory)
     {
         //
+        return view('artifact.category.show');
     }
 
     /**
@@ -58,6 +78,8 @@ class ArtifactCategoryController extends Controller
     public function edit(ArtifactCategory $artifactCategory)
     {
         //
+        $artifactcategory = ArtifactCategory::whereId($artifactCategory->id)->first();
+        return view('artifact.category.edit', ['artifactcategory'=>$artifactcategory]);
     }
 
     /**
@@ -69,7 +91,22 @@ class ArtifactCategoryController extends Controller
      */
     public function update(Request $request, ArtifactCategory $artifactCategory)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            ]);
+           $artifactCategory =artifactCategory::find($artifactCategory->id)->update(
+           [
+               'name' => $request->input('name'),
+           ]);
+   
+           if($artifactCategory)
+           {
+               return back()->with('success', 'You have updated Category named '. $artifactCategory->name);
+           }
+           else
+           {
+               return back()->withInput();
+           }
     }
 
     /**
@@ -80,6 +117,14 @@ class ArtifactCategoryController extends Controller
      */
     public function destroy(ArtifactCategory $artifactCategory)
     {
-        //
+        $artifactCategory =artifactCategory::find($artifactCategory->id)->delete();
+
+        if ($artifactCategory) {
+            # code...
+            return redirect()->route('artifactcategories.index')->with('success', 'artifact category deleted Successfully');
+        }else
+        {
+            return redirect()->back()->withInput();
+        }
     }
 }
