@@ -45,12 +45,17 @@ class ArtifactController extends Controller
                     'category_id'=> $request->get('category_id'),
                   ]);
                   if($newArt)
-                    return back()->with('success', 'You have Added new artifact successful');
+                  {return redirect()->route('artifact.index')->with('success', 'You have updated artifact ');}
+               else{
+                return back()->withInput();
                }
-  else
-  {
-      return back()->withInput();
-  }}
+            }else{
+                return redirect()->back()->with('error', 'unsupported image ');
+            }
+        }else{
+            return redirect()->back()->with('error', 'please upload image ');
+        }
+
     }
 
     public function edit(Artifact $artifact)
@@ -102,9 +107,11 @@ class ArtifactController extends Controller
     {
         //
         $artifact = Artifact::where('id', $artifact->id)->delete();
+        // $image = $artifact->photo;
 
         if ($artifact) {
             # code...
+            // @unlink(public_path('/images/HouseUploads/' . $src));
             return redirect()->route('artifact.index')->with('success', 'artifact deleted Successfully');
         }else
         {
