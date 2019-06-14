@@ -16,6 +16,7 @@ class CreateArtifactCategoriesTable extends Migration
         Schema::create('artifact_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->text('description');
             $table->timestamps();
         });
     }

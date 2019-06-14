@@ -45,6 +45,7 @@ class ArtifactCategoryController extends Controller
            $artifactCategory =ArtifactCategory::create(
            [
                'name' => $request->input('name'),
+               'description' => $request->input('description'),
            ]);
    
            if($artifactCategory)
@@ -75,11 +76,12 @@ class ArtifactCategoryController extends Controller
      * @param  \App\ArtifactCategory  $artifactCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(ArtifactCategory $artifactCategory)
+    public function edit($id)
     {
         //
-        $artifactcategory = ArtifactCategory::whereId($artifactCategory->id)->first();
-        return view('artifact.category.edit', ['artifactcategory'=>$artifactcategory]);
+        $artifact = ArtifactCategory::findOrFail($id);
+        // dd($id);
+        return view('artifact.category.edit', ['artifactcategory'=>$artifact]);
     }
 
     /**
@@ -89,19 +91,19 @@ class ArtifactCategoryController extends Controller
      * @param  \App\ArtifactCategory  $artifactCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ArtifactCategory $artifactCategory)
+    public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
             'name' => 'required',
             ]);
-           $artifactCategory =artifactCategory::find($artifactCategory->id)->update(
+           $artifactCategory =artifactCategory::findOrFail($id)->update(
            [
                'name' => $request->input('name'),
            ]);
    
            if($artifactCategory)
            {
-               return back()->with('success', 'You have updated Category named '. $artifactCategory->name);
+               return redirect()->route('artifactcategories.index')->with('success', 'You have updated Category successful');
            }
            else
            {
@@ -115,9 +117,9 @@ class ArtifactCategoryController extends Controller
      * @param  \App\ArtifactCategory  $artifactCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ArtifactCategory $artifactCategory)
+    public function destroy($id)
     {
-        $artifactCategory =artifactCategory::find($artifactCategory->id)->delete();
+        $artifactCategory =artifactCategory::findOrFail($id)->delete();
 
         if ($artifactCategory) {
             # code...

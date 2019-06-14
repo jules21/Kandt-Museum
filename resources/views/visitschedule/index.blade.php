@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title','artifacts')
+@section('title','visit Schedule')
 @section('content')
         <!-- ============================================================== -->
         <!-- Start right Content here -->
@@ -17,33 +17,31 @@
          <!-- <div class="card-body">
                                     <h4 class="mt-0 header-title">Default Datatable</h4>
                                     <p class="text-muted m-b-30">DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>.</p> -->
-                                    @if($artifacts->isEmpty())
-                                    <p class="alert alert-info text-center">No artifact Added Yet!</p>
+                                    @if($visitSchedules->isEmpty())
+                                    <p class="alert alert-info text-center">No visit Schedule Added Yet!</p>
                                     @else
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         <thead>
                                             <tr>
-                                                <th>artifact Name</th>
-                                                <th>description</th>
-                                                <th>photo</th>
-                                                <th>Year</th>
-                                                <th>category</th>
+                                                <th>Visit  Day</th>
+                                                <th>Start Time</th>
+                                                <th>End Time</th>
+                                                <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($artifacts as $artifact)
+                                            @foreach($visitSchedules as $visit)
                                              <tr>
-                                                <th>{{$artifact->name}}</th>
-                                                <th>{{ str_limit($artifact->description, $limit = 75, $end = '...') }}</th>
-                                                <th><img src="images/artifacts/{{$artifact->photo}}" height="100" width="150"></th>
-                                                <th>{{$artifact->year}}</th>
-                                                <th>{{$artifact->artifactCategory->name}}</th>
+                                                <th>{{$visit->days_of_week}}</th>
+                                                <th>{{$visit->start_time}}</th>
+                                                <th>{{$visit->end_time}}</th>
+                                                <th>{{ str_limit($visit->description, $limit = 75, $end = '...') }}</th>
                                                 <td>
 
-                                                    <a href="{{route('artifact.edit', [$artifact->id])}}"><i class="ion-edit" style="font-size:20px;"></i></a>&nbsp;&nbsp;
+                                                    <a href="{{route('visitschedule.edit', [$visit->id])}}"><i class="ion-edit" style="font-size:20px;"></i></a>&nbsp;&nbsp;
                                <!---->
-<form action="{{route('artifact.destroy',[$artifact->id])}}" method="post" class="d-inline">
+<form action="{{route('visitschedule.destroy',[$visit->id])}}" method="post" class="d-inline">
             @csrf
             <input name="_method" type="hidden" value="DELETE">
     <button class="btn" type="submit" onclick="return confirm('Are you sure?')"><i class="ion-ios7-close-outline" style="font-size:20px;"></i></button>

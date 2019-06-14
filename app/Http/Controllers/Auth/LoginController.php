@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/artifact';
+    protected $redirectTo = '/admin/dashboard';
     // public function redirectTo(){
 
  

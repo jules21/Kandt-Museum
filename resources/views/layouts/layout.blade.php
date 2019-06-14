@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-     <title>Art Gallery | @yield('title')</title>
+     <title>Kandt Museum | @yield('title')</title>
     <meta content="Admin Dashboard" name="description">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -33,7 +33,7 @@
             <!-- LOGO -->
             <div class="topbar-left"><a href="{{url('admin/dashboard')}}" class="logo"><span>                
                     <img src="{{asset('assets/images/logo.jpg')}}" alt="" height="22">
-                        <span style="color: white;"> Art-Gallery </span>
+                        <span style="color: white;">Kandt Museum </span>
                 </a></div>
             <nav class="navbar-custom">
                 <ul class="navbar-right d-flex list-inline float-right mb-0">
@@ -100,6 +100,12 @@
                             <ul class="submenu">
                                 <li><a href="{{route('artifactcategories.index')}}">All Categories</a></li>
                                 <li><a href="{{route('artifactcategories.create')}}">Add New Category</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);" class="waves-effect"><i class="fas fa-university"></i><span> visit schedule <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>
+                            <ul class="submenu">
+                                <li><a href="{{route('visitschedule.index')}}">All visit schedules</a></li>
+                                <li><a href="{{route('visitschedule.create')}}">Add New schedule</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="waves-effect"><i class="fas fa-user-friends"></i><span> Manage Users <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>

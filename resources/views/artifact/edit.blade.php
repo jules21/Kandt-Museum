@@ -12,7 +12,7 @@
                 <div class="card-body">
                           @include('partials.success')
         @include('partials.error')
-                        <form action="{{route('artifact.update', $artifact->id)}}" method="post">
+                        <form action="{{route('artifact.update', $artifact->id)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="_method" value="put">
                       <div class="form-group row"><label for="example-text-input" class="col-sm-2 col-form-label">artifact Title</label>
@@ -22,8 +22,11 @@
                         <div class="col-sm-10"><input class="form-control" type="date" value="{{$artifact->year}}" id="example-text-input" name="year"></div>
                     </div>
 
-                     <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">isbn</label>
-                                    <div class="col-sm-10"><input class="form-control" type="file" value="{{$artifact->photo}}" id="example-number-input" name="photo"></div>
+                     <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">Image</label>
+                                    <div class="col-sm-10">
+                                        <img src="{{ asset('images/artifacts/'.$artifact->photo) }}" alt="" class="img-field">
+                                        <input class="form-control" type="file" id="example-number-input" name="photo">
+                                    </div>
                                 </div>
 
                                <div class="form-group row"><label class="col-sm-2 col-form-label">Category</label>

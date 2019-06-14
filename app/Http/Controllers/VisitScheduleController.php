@@ -15,6 +15,8 @@ class VisitScheduleController extends Controller
     public function index()
     {
         //
+        $visitSchedules = VisitSchedule::all();
+        return view('visitSchedule.index',['visitSchedules'=>$visitSchedules]);
     }
 
     /**
@@ -25,6 +27,7 @@ class VisitScheduleController extends Controller
     public function create()
     {
         //
+        return view('visitSchedule.create');
     }
 
     /**
@@ -35,7 +38,29 @@ class VisitScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        // dd($request->all());
+        $validatedData = $request->validate([
+            'day_of_week' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
+            ]);
+           $visitSchedule =VisitSchedule::create(
+           [
+               'days_of_week' => $request->input('day_of_week'),
+               'start_time' => $request->input('start_time'),
+               'end_time' => $request->input('end_time'),
+               'description' => $request->input('description'),
+           ]);
+   
+           if($visitSchedule)
+           {
+               return back()->with('success', 'You have created new visit Schedule successful ');
+           }
+           else
+           {
+               return back()->withInput();
+           }
     }
 
     /**
@@ -46,7 +71,10 @@ class VisitScheduleController extends Controller
      */
     public function show(VisitSchedule $visitSchedule)
     {
-        //
+        // //
+        // $artifact = ArtifactCategory::findOrFail($id);
+        // // dd($id);
+        // return view('artifact.category.edit', ['artifactcategory'=>$artifact]);
     }
 
     /**
@@ -55,9 +83,12 @@ class VisitScheduleController extends Controller
      * @param  \App\VisitSchedule  $visitSchedule
      * @return \Illuminate\Http\Response
      */
-    public function edit(VisitSchedule $visitSchedule)
+    public function edit($id)
     {
         //
+        $visit = VisitSchedule::findOrFail($id);
+        // dd($id);
+        return view('visitSchedule.edit', ['visitSchedule'=>$visit]);
     }
 
     /**
@@ -67,9 +98,31 @@ class VisitScheduleController extends Controller
      * @param  \App\VisitSchedule  $visitSchedule
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, VisitSchedule $visitSchedule)
+    public function update(Request $request,  $id)
     {
+
         //
+        $validatedData = $request->validate([
+            'day_of_week' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
+            ]);
+           $visitSchedule =VisitSchedule::findOrFail($id)->update(
+           [
+               'days_of_week' => $request->input('day_of_week'),
+               'start_time' => $request->input('start_time'),
+               'end_time' => $request->input('end_time'),
+               'description' => $request->input('description'),
+           ]);
+   
+           if($visitSchedule)
+           {
+               return redirect()->route('visitschedule.index')->with('success', 'You have updated visit schedule successful');
+           }
+           else
+           {
+               return back()->withInput();
+           }
     }
 
     /**
@@ -78,8 +131,17 @@ class VisitScheduleController extends Controller
      * @param  \App\VisitSchedule  $visitSchedule
      * @return \Illuminate\Http\Response
      */
-    public function destroy(VisitSchedule $visitSchedule)
+    public function destroy($id)
     {
         //
+        $visitSchedule =visitSchedule::findOrFail($id)->delete();
+
+        if ($visitSchedule) {
+            # code...
+            return redirect()->route('visitschedule.index')->with('success', 'visit Schedule deleted Successfully');
+        }else
+        {
+            return redirect()->back()->withInput();
+        }
     }
 }

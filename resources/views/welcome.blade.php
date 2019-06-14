@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    ART Gallery
+                    Kandt Museum
                 </div>
 
                 {{-- <div class="links">

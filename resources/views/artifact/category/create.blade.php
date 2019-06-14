@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title','Add Category')
 @section('content')
    <div class="content-page">
             <!-- Start content -->

@@ -16,6 +16,9 @@ class CreateVisitSchedulesTable extends Migration
         Schema::create('visit_schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('days_of_week');
+            $table->string('start_time');
+            $table->string('end_time');
+            $table->longText('description');
             $table->timestamps();
         });
     }

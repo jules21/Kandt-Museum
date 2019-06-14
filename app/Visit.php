@@ -8,4 +8,9 @@ class Visit extends Model
 {
     //
     protected $guarded = ['id'];
+
+    public function visitSchedule()
+    {
+        return $this->belongsTo('App\VisitSchedule');
+    }
 }

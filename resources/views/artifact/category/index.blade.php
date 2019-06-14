@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'artifactcategories')
+@section('title', 'all categories')
 @section('content')
         <!-- ============================================================== -->
         <!-- Start right Content here -->

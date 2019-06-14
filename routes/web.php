@@ -14,8 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/artifact', 'ArtifactController');
-Route::resource('/artifactcategories', 'ArtifactCategoryController');
+
+Route::group(['prefix' =>'admin','middleware' => 'auth'], function(){
+    Route::get('/dashboard', function () {
+        return view('layouts.layout');
+    });
+    Route::resource('/artifact', 'ArtifactController');
+    Route::resource('/visitschedule', 'VisitScheduleController');
+    Route::resource('/artifactcategories', 'ArtifactCategoryController');
+});
 
 Auth::routes();
 

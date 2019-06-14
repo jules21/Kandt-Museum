@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title','create new book')
+@section('title','create new Artifact')
 @section('content')
    <div class="content-page">
             <!-- Start content -->
@@ -28,7 +28,7 @@
                                <div class="form-group row"><label class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-10">
                            <select class="custom-select" name="category_id" id="institution" required>
-                            <option selected disabled>choose Category</option>
+                            <option value="" selected disabled>choose Category</option>
                             @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach                           

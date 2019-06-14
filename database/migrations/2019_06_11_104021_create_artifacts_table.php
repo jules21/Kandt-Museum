@@ -16,7 +16,7 @@ class CreateArtifactsTable extends Migration
         Schema::create('artifacts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('description');
+            $table->longText('description');
             $table->string('photo');
             $table->date('year');
             $table->integer('category_id')->unsigned();

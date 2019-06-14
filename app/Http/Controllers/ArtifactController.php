@@ -75,17 +75,32 @@ class ArtifactController extends Controller
      */
     public function update(Request $request, Artifact $artifact)
     {
+        // dd($request->all());
         //
         $artifact = Artifact::find($artifact->id);
-
- 
+       
 
         $artifact->name = $request->get('name');
         $artifact->description = $request->get('description');
-        $artifact->year = $request->get('year');
-        $artifact->photo = $request->get('photo');
-        // $artifact->category_id = $request->get('category_id');
-        $artifact->category_id = 1;
+        $artifact->year = $request->get('year');        
+        $artifact->category_id = $request->get('category_id');
+
+        // if($request->get('photo') == null){
+        //     $artifact->save();
+        // }else{
+        //     $photo = $request->file('photo');
+        //     $destinationPath = public_path('images/artifacts');
+        //     $allowedfileExtension=['jpeg','jpg','png'];  
+                 
+        //     $extension = $photo->getClientOriginalName();
+        //     $check=in_array($extension,$allowedfileExtension);
+        //     if ($check) {
+                
+        //     @unlink(public_path('/images/artifacts/' . $image));
+        //         $filename = time() . $photo->getClientOriginalName();
+        //         $photo->move($destinationPath, $filename);
+
+        //         $artifact->year=$filename;
 
         if($artifact->save())
         {
@@ -94,8 +109,8 @@ class ArtifactController extends Controller
         else
         {
             return back()->withInput();
-        }
-    }
+        }}
+      
 
     /**
      * Remove the specified resource from storage.
@@ -106,12 +121,13 @@ class ArtifactController extends Controller
     public function destroy(Artifact $artifact)
     {
         //
-        $artifact = Artifact::where('id', $artifact->id)->delete();
-        // $image = $artifact->photo;
+        $artifact = Artifact::where('id', $artifact->id)->first();
 
-        if ($artifact) {
+        $image = $artifact->photo;
+
+        if ($artifact->delete()) {
             # code...
-            // @unlink(public_path('/images/HouseUploads/' . $src));
+            @unlink(public_path('/images/artifacts/' . $image));
             return redirect()->route('artifact.index')->with('success', 'artifact deleted Successfully');
         }else
         {

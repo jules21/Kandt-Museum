@@ -11,6 +11,6 @@ class ArtifactCategory extends Model
     
     public function artifact()
     {
-        return $this->hasMany('App\Artifact');
+        return $this->hasMany('App\Artifact','category_id');
     }
 }
