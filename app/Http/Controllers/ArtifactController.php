@@ -68,7 +68,7 @@ class ArtifactController extends Controller
     public function show()
     {
       $gallery = Artifact::all();
-      return view(index, compact(gallery));
+      return view('index', compact('gallery'));
     }
     /**
      * Update the specified resource in storage.
