@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title','Add new Schedule')
+@section('title','Edit Schedule')
 @section('content')
    <div class="content-page">
             <!-- Start content -->
@@ -12,11 +12,12 @@
                 <div class="card-body">
                 @include('partials.success')
                 @include('partials.error')
-                  <form action="{{route('visitschedule.update',$visitSchedule->id )}}" method="post">
+                <form action="{{route('visitschedule.update', $visitSchedule->id)}}" method="post">
                      @csrf
+                     <input type="hidden" name="_method" value="put">                    
                      <div class="form-group row"><label class="col-sm-2 col-form-label">Day Of Week</label>
                         <div class="col-sm-10">
-                               <select class="custom-select" name="day_of_week" id="institution" required>
+                               <select class="custom-select" name="day_of_week" required>
                                 <option value="" selected disabled>pick day</option>
                                
                                 <option value="Monday">Monday</option>
@@ -33,20 +34,20 @@
                 <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">Time (start - End)</label>
                 <div class="col-sm-10">                        
                 <div class="input-daterange input-group" id="date-range">
-                    <input type="time" class="form-control" name="start_time" placeholder="start"> 
-                    <input type="time" class="form-control" name="end_time" placeholder="end">
+                    <input type="time" class="form-control" name="start_time" placeholder="start" value="{{$visitSchedule->start_time}}"> 
+                    <input type="time" class="form-control" name="end_time" placeholder="end" value="{{$visitSchedule->end_time}}">
                 </div>
                 </div>
                 </div>
                 <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10"><textarea class="form-control" rows="5" name="description">
-                        {{$visitSchedule->description}}   
+                        {{$visitSchedule->description}}  
                 </textarea></div>
                 </div>
 
 
             <div class="form-group row m-t-20">
-            <div class="col-12 text-right"><button class="btn btn-primary w-md waves-effect waves-light" type="submit">{{ __('Add New Schedule') }}</button></div>
+            <div class="col-12 text-right"><button class="btn btn-primary w-md waves-effect waves-light" type="submit">{{ __('Edit Schedule') }}</button></div>
         </div>
                </form>
                                  

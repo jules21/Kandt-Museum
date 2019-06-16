@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateVisitSchedulesTable extends Migration
 {
@@ -16,8 +16,8 @@ class CreateVisitSchedulesTable extends Migration
         Schema::create('visit_schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('days_of_week');
-            $table->string('start_time');
-            $table->string('end_time');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->longText('description');
             $table->timestamps();
         });
