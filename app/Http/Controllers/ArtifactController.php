@@ -14,7 +14,7 @@ class ArtifactController extends Controller
         //
         $artifacts = Artifact::all();
         return view('artifact.index', compact('artifacts'));
-     
+
     }
 
 
@@ -31,7 +31,7 @@ class ArtifactController extends Controller
         if($request->hasFile('photo')){
             $photo = $request->file('photo');
             $destinationPath = public_path('images/artifacts');
-            $allowedfileExtension=['jpeg','jpg','png'];        
+            $allowedfileExtension=['jpeg','jpg','png'];
             $extension = $photo->getClientOriginalExtension();
             $check=in_array($extension,$allowedfileExtension);
             if ($check) {
@@ -65,7 +65,11 @@ class ArtifactController extends Controller
         $categories = ArtifactCategory::all();
         return view('artifact.edit', compact('categories','artifact'));
     }
-
+    public function show()
+    {
+      $gallery = Artifact::all();
+      return view('index', compact('gallery'));
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -78,11 +82,11 @@ class ArtifactController extends Controller
         // dd($request->all());
         //
         $artifact = Artifact::find($artifact->id);
-       
+
 
         $artifact->name = $request->get('name');
         $artifact->description = $request->get('description');
-        $artifact->year = $request->get('year');        
+        $artifact->year = $request->get('year');
         $artifact->category_id = $request->get('category_id');
 
         // if($request->get('photo') == null){
@@ -90,12 +94,12 @@ class ArtifactController extends Controller
         // }else{
         //     $photo = $request->file('photo');
         //     $destinationPath = public_path('images/artifacts');
-        //     $allowedfileExtension=['jpeg','jpg','png'];  
-                 
+        //     $allowedfileExtension=['jpeg','jpg','png'];
+
         //     $extension = $photo->getClientOriginalName();
         //     $check=in_array($extension,$allowedfileExtension);
         //     if ($check) {
-                
+
         //     @unlink(public_path('/images/artifacts/' . $image));
         //         $filename = time() . $photo->getClientOriginalName();
         //         $photo->move($destinationPath, $filename);
@@ -110,7 +114,7 @@ class ArtifactController extends Controller
         {
             return back()->withInput();
         }}
-      
+
 
     /**
      * Remove the specified resource from storage.

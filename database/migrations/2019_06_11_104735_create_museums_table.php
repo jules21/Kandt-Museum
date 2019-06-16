@@ -17,7 +17,7 @@ class CreateMuseumsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->integer('location_id')->unsigned();
-            $table->foreign('location_id')->references('id')->on('locations');
+            // $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
         });
     }
