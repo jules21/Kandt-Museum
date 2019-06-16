@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/','ArtifactController@show');
 Route::group(['prefix' =>'admin','middleware' => 'auth'], function(){
     Route::get('/dashboard', function () {
         return view('layouts.layout');
