@@ -34,8 +34,19 @@
                                             @foreach($visitSchedules as $visit)
                                              <tr>
                                                 <th>{{$visit->days_of_week}}</th>
-                                                <th>{{$visit->start_time}}</th>
-                                                <th>{{$visit->end_time}}</th>
+                                                <th>
+                                                    @php
+                                                    $time = date("g:i a", strtotime($visit->start_time . "UTC"));
+                                                    echo $time ;
+                                                    @endphp
+                                                </th>
+                                                </th>
+                                                <th>
+                                                        @php
+                                                        $time = date("g:i a", strtotime($visit->end_time . "UTC"));
+                                                        echo $time ;
+                                                        @endphp
+                                                </th>
                                                 <th>{{ str_limit($visit->description, $limit = 75, $end = '...') }}</th>
                                                 <td>
 

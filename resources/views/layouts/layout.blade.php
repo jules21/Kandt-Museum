@@ -69,7 +69,7 @@
                     <li class="float-left"><button class="button-menu-mobile open-left waves-effect"><i class="mdi mdi-menu"></i></button></li>
                     <li class="d-none d-sm-block">
                         <div class="dropdown pt-3 d-inline-block"><a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" href="{{route('artifact.create')}}">New Artifact</a> <a class="dropdown-item" href="#">New User</a> <a class="dropdown-item" href="#">New Location</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" href="{{route('artifact.create')}}">New Artifact</a> <a class="dropdown-item" href="{{route('users.create')}}">New User</a> <a class="dropdown-item" href="{{route('locations.create')}}">New Location</a>
                                 <div class="dropdown-divider"></div><a class="dropdown-item" href="{{route('artifactcategories.create')}}">New Artifact Category</a>
                             </div>
                         </div>
@@ -108,10 +108,16 @@
                                 <li><a href="{{route('visitschedule.create')}}">Add New schedule</a></li>
                             </ul>
                         </li>
+                        <li><a href="javascript:void(0);" class="waves-effect"><i class="fas fa-university"></i><span> exhibition schedule <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>
+                            <ul class="submenu">
+                                <li><a href="{{route('exhibitions.index')}}">All exhibition schedules</a></li>
+                                <li><a href="{{route('exhibitions.create')}}">Add New schedule</a></li>
+                            </ul>
+                        </li>
                         <li><a href="javascript:void(0);" class="waves-effect"><i class="fas fa-user-friends"></i><span> Manage Users <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>
                             <ul class="submenu">
-                                <li><a href="#">All Users</a></li>
-                                <li><a href="#">Add New User</a></li>
+                                <li><a href="{{route('users.index')}}">All Users</a></li>
+                                <li><a href="{{route('users.create')}}">Add New User</a></li>
                             </ul>
                         </li>
                     </ul>

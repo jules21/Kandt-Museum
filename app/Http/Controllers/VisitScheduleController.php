@@ -100,29 +100,30 @@ class VisitScheduleController extends Controller
      */
     public function update(Request $request,  $id)
     {
+        $request->all();
 
         //
-        $validatedData = $request->validate([
-            'day_of_week' => 'required',
-            'start_time' => 'required',
-            'end_time' => 'required',
-            ]);
-           $visitSchedule =VisitSchedule::findOrFail($id)->update(
-           [
-               'days_of_week' => $request->input('day_of_week'),
-               'start_time' => $request->input('start_time'),
-               'end_time' => $request->input('end_time'),
-               'description' => $request->input('description'),
-           ]);
+        // $validatedData = $request->validate([
+        //     'day_of_week' => 'required',
+        //     'start_time' => 'required',
+        //     'end_time' => 'required',
+        //     ]);
+        //    $visitSchedule =VisitSchedule::findOrFail($id)->update(
+        //    [
+        //        'days_of_week' => $request->input('day_of_week'),
+        //        'start_time' => $request->input('start_time'),
+        //        'end_time' => $request->input('end_time'),
+        //        'description' => $request->input('description'),
+        //    ]);
    
-           if($visitSchedule)
-           {
-               return redirect()->route('visitschedule.index')->with('success', 'You have updated visit schedule successful');
-           }
-           else
-           {
-               return back()->withInput();
-           }
+        //    if($visitSchedule)
+        //    {
+        //        return redirect()->route('visitschedule.index')->with('success', 'You have updated visit schedule successful');
+        //    }
+        //    else
+        //    {
+        //        return back()->withInput();
+        //    }
     }
 
     /**
