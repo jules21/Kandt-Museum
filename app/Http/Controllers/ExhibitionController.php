@@ -15,6 +15,8 @@ class ExhibitionController extends Controller
     public function index()
     {
         //
+        $exhibitions = Exhibition::all();
+        return view('exhibition.index', compact('exhibitions'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ExhibitionController extends Controller
      */
     public function create()
     {
-        //
+        return view('exhibition.create');
     }
 
     /**
@@ -36,6 +38,32 @@ class ExhibitionController extends Controller
     public function store(Request $request)
     {
         //
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+            $destinationPath = public_path('images/exhibitions');
+            $allowedfileExtension = ['jpeg', 'jpg', 'png'];
+            $extension = $photo->getClientOriginalExtension();
+            $check = in_array($extension, $allowedfileExtension);
+            if ($check) {
+                $filename = time() . $photo->getClientOriginalName();
+                $photo->move($destinationPath, $filename);
+                $newArt = Exhibition::create([
+                    'title' => $request->get('title'),
+                    'description' => $request->get('description'),
+                    'date' => $request->get('date'),
+                    'time' => $request->get('time'),
+                    'photo' => $filename,
+                ]);
+
+                if ($newArt) {return redirect()->route('exhibition.index')->with('success', 'You have updated exhibition ');} else {
+                    return back()->withInput();
+                }
+            } else {
+                return redirect()->back()->with('error', 'unsupported image ');
+            }
+        } else {
+            return redirect()->back()->with('error', 'please upload image ');
+        }
     }
 
     /**
@@ -57,7 +85,8 @@ class ExhibitionController extends Controller
      */
     public function edit(Exhibition $exhibition)
     {
-        //
+        $exhibition = Exhibition::find($exhibition->id);
+        return view('exhibition.edit', compact('exhibition'));
     }
 
     /**
@@ -80,6 +109,16 @@ class ExhibitionController extends Controller
      */
     public function destroy(Exhibition $exhibition)
     {
-        //
+        $exhibition = Exhibition::where('id', $exhibition->id)->first();
+
+        $image = $exhibition->photo;
+
+        if ($exhibition->delete()) {
+            # code...
+            @unlink(public_path('/images/exhibitions/' . $image));
+            return redirect()->route('exhibition.index')->with('success', 'exhibition deleted Successfully');
+        } else {
+            return redirect()->back()->withInput();
+        }
     }
 }

@@ -2292,12 +2292,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-  background: url(../img/header-bg.jpg) center;
+  background: url(../img/kandt/header.jpg) center;
   background-size: cover;
 }
 
 .banner-area .overlay-bg {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .banner-content {

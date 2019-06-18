@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateExhibitionsTable extends Migration
 {
@@ -15,6 +15,11 @@ class CreateExhibitionsTable extends Migration
     {
         Schema::create('exhibitions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('photo');
+            $table->string('title');
+            $table->date('date');
+            $table->time('time');
+            $table->longText('description');
             $table->timestamps();
         });
     }

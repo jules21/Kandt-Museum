@@ -95,101 +95,13 @@
 			</section>
 			<!-- End banner Area -->
 
-			<!-- Start quote Area -->
-			<section class="quote-area pt-100">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 quote-left">
-							<h1>
-								<span>Music</span> gives soul to the universe, <br>
-								wings to the <span>mind</span>, flight <br>
-								to the <span>imagination</span>.
-							</h1>
-						</div>
-						<div class="col-lg-6 quote-right">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- End quote Area -->
-
-
-			<!-- Start service Area -->
-			<section class="service-area section-gap" id="about">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="single-service">
-							  <span class="lnr lnr-clock"></span>
-							  <h4>Openning Hours</h4>
-							  <p>
-							  	Mon - Fri: 10.00am to 05.00pm
-								Sat: 12.00pm to 03.00 pm
-								Sunday Closed
-							  </p>
-							  <div class="overlay">
-							    <div class="text">
-							    	<p>
-							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
-							    	</p>
-							    	<a href="#" class="text-uppercase primary-btn">Buy ticket</a>
-							    </div>
-							  </div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-service">
-							  <span class="lnr lnr-rocket"></span>
-							  <h4>Ongoing Exhibitions</h4>
-							  <p>
-							  	Mon - Fri: 10.00am to 05.00pm
-								Sat: 12.00pm to 03.00 pm
-								Sunday Closed
-							  </p>
-							  <div class="overlay">
-							    <div class="text">
-							    	<p>
-							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
-							    	</p>
-							    	<a href="#" class="text-uppercase primary-btn">Buy ticket</a>
-							    </div>
-							  </div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-service">
-							  <span class="lnr lnr-briefcase"></span>
-							  <h4>Openning Events</h4>
-							  <p>
-							  	Mon - Fri: 10.00am to 05.00pm
-								Sat: 12.00pm to 03.00 pm
-								Sunday Closed
-							  </p>
-							  <div class="overlay">
-							    <div class="text">
-							    	<p>
-							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
-							    	</p>
-							    	<a href="#" class="text-uppercase primary-btn">Buy ticket</a>
-							    </div>
-							  </div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- End service Area -->
-
 			<!-- Start about info Area -->
 			<section class="section-gap info-area" id="about">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-40 col-lg-8">
 							<div class="title text-center">
-								<h1 class="mb-10">Few words about our Museum</h1>
+								<h1 class="mb-10">Few words about Kandt Museum</h1>
 								<p>Who are in extremely love with eco friendly system.</p>
 							</div>
 						</div>
@@ -197,25 +109,29 @@
 					<div class="single-info row mt-40">
 						<div class="col-lg-6 col-md-12 mt-120 text-center no-padding info-left">
 							<div class="info-thumb">
-								<img src="img/pages/about-img.jpg" class="img-fluid" alt="">
+								<img src="{{asset('img/kandt.png')}}" class="img-fluid" alt="">
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-12 no-padding info-rigth">
 							<div class="info-content">
-								<h2 class="pb-30">We Realize that <br>
-								there are reduced <br>
-								Wastege Stand out</h2>
+								<h2 class="pb-30">Kandt House (Kigali). <br>
+									Natural History Museum <br>
+								</h2>
 								<p>
-									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
+									Kandt House Museum, the former Natural History Museum is located at KN 90 St, around one kilimiter from downtown. This museum is formerly well known as Natural History Museum (NHM). Its name as NHM was changed into Kandt House Museum since December, 17th 2017.
 								</p>
 								<br>
 								<p>
-									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards – especially in the workplace. That’s why it’s crucial that, as women. inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
+									Richard Kandt was the first colonial governor of Rwanda, on behalf of Germany, until the early 1900s. At present, the Kandt House Museum in Kigali comprises three main parts.
+									
+									The first part presents Rwandan life in all its aspects – social, economic, and political – before the colonial period.
 								</p>
 								<br>
 								<p>
-									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
-								</p>
+								The second part traces the experience of the Rwandan people during the colonial period. Following the Berlin Conference in 1884, the Germans ruled Rwanda until 1916, when the Belgians took over under the League of Nations Mandate after World War I. Richard Kandt’s life and deeds in Rwanda are covered here.
+							</p>
+							
+							
 								</div>
 						</div>
 					</div>
@@ -231,30 +147,23 @@
 							<div class="single-footer-widget">
 								<h6>About Us</h6>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+									Kandt House Museum of Natural History is a museum in Kigali, Rwanda. It is under the responsibility of the Institute of National Museums of Rwanda.
 								</p>
 								<p class="footer-text">
 									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |  made by GIHOZO Audrey
 								</p>
 							</div>
 						</div>
-						<div class="col-lg-5  col-md-6 col-sm-6">
+						<div class="col-lg-5  col-md-6 col-sm-6 pl-4">
 							<div class="single-footer-widget">
-								<h6>Newsletter</h6>
-								<p>Stay update with our latest</p>
-								<div class="" id="mc_embed_signup">
-									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-										<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-			                            	<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-			                            	<div style="position: absolute; left: -5000px;">
-												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-											</div>
+								<h6>CONTACT</h6>
+								<p>Rwanda, kigali <br>
+									Address: 2 KN 90 St, Kigali <br>	 
+										Phone: 0730 741 093 <br>
+										info@kandt.rw <br>
+										Mon - Fri 07.00 - 18.00</p>
 
-										<div class="info"></div>
-									</form>
-								</div>
 							</div>
 						</div>
 						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
