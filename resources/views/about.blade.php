@@ -54,26 +54,29 @@
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+							<span class="text-white text-uppercase lead">Kandt Museum</span>
+						{{-- <a href="index.html"><img src="img/logo.png" alt="" title="" /> --}}
+						</a>
 				      </div>
 				      <nav id="nav-menu-container">
-				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="index.html">Home</a></li>
-				          <li><a href="about.html">About</a></li>
-				          <li><a href="gallery.html">Gallery</a></li>
-				          <li><a href="event.html">Events</a></li>
-				          <li><a href="ticket.html">Ticket</a></li>
-				          <li><a href="blog-home.html">Blog</a></li>
-				          <li><a href="contact.html">Contact</a></li>
-				          <li class="menu-has-children"><a href="">Pages</a>
-				            <ul>
-				              <li><a href="blog-single.html">Blog Single</a></li>
-				              <li><a href="category.html">Category</a></li>
-				              <li><a href="elements.html">Elements</a></li>
-				            </ul>
-				          </li>
-				        </ul>
-				      </nav><!-- #nav-menu-container -->
+							<ul class="nav-menu">
+							  <li class="menu-active"><a href="index.html">Home</a></li>
+							  <li><a href="about.html">About</a></li>
+							  <li><a href="gallery.html">Gallery</a></li>
+							  <li><a href="event.html">Events</a></li>
+							  <li><a href="ticket.html">Ticket</a></li>
+							  <li><a href="contact.html">Contact</a></li>
+							  {{-- <li><a href="blog-home.html">Blog</a></li> --}}
+							  {{-- <li class="menu-has-children"><a href="">Pages</a>
+								<ul>
+								  <li><a href="blog-single.html">Blog Single</a></li>
+								  <li><a href="category.html">Category</a></li>
+								  <li><a href="elements.html">Elements</a></li>
+								</ul>
+							  </li> --}}
+							</ul>
+						  </nav>
+						  <!-- #nav-menu-container -->
 			    	</div>
 			    </div>
 			  </header><!-- #header -->
@@ -101,12 +104,12 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-40 col-lg-8">
 							<div class="title text-center">
-								<h1 class="mb-10">Few words about Kandt Museum</h1>
-								<p>Who are in extremely love with eco friendly system.</p>
+								<h1 class="mb-10">About US</h1>
+								<p>Few words about Kandt Museum</p>
 							</div>
 						</div>
 					</div>
-					<div class="single-info row mt-40">
+					<div class="single-info row mt-10">
 						<div class="col-lg-6 col-md-12 mt-120 text-center no-padding info-left">
 							<div class="info-thumb">
 								<img src="{{asset('img/kandt.png')}}" class="img-fluid" alt="">
@@ -114,7 +117,7 @@
 						</div>
 						<div class="col-lg-6 col-md-12 no-padding info-rigth">
 							<div class="info-content">
-								<h2 class="pb-30">Kandt House (Kigali). <br>
+								<h2 class="pb-30 p-3"><span class="text-center">Kandt House</span> <br>
 									Natural History Museum <br>
 								</h2>
 								<p>

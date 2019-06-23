@@ -15,5 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(ArtifactCategorySeeder::class);
         $this->call(ManagerSeeder::class);
+        $this->call(ArtifactSeedTable::class);
+        $this->call(EventSeederTable::class);
+        
     }
 }

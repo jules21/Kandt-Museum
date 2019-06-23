@@ -1,0 +1,183 @@
+<?php
+
+use App\Artifact;
+use Illuminate\Database\Seeder;
+
+class ArtifactSeedTable extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $artifacts =
+            [
+            [
+                'id' => '1',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'DSC_0042.JPG',
+                'category_id' => '2',
+            ],
+            [
+                'id' => '2',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'DSC_0049.JPG',
+                'category_id' => '1',
+            ],
+            [
+                'id' => '3',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMGL2431.JPG',
+                'category_id' => '4',
+            ],
+            [
+                'id' => '4',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6185.JPG',
+                'category_id' => '3',
+            ],
+            [
+                'id' => '5',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6257.JPG',
+                'category_id' => '2',
+            ],
+            [
+                'id' => '6',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6258.JPG',
+                'category_id' => '1',
+            ],
+            [
+                'id' => '7',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'Umurashi w_Umuheto.jpg',
+                'category_id' => '4',
+            ],
+            [
+                'id' => '8',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6183.JPG',
+                'category_id' => '3',
+            ],
+            [
+                'id' => '9',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6184.JPG',
+                'category_id' => '2',
+            ],
+            [
+                'id' => '10',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6181.JPG',
+                'category_id' => '1',
+            ],
+            [
+                'id' => '11',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6171.JPG',
+                'category_id' => '2',
+            ],
+            [
+                'id' => '12',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6170.JPG',
+                'category_id' => '1',
+            ],
+            [
+                'id' => '13',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6175.JPG',
+                'category_id' => '4',
+            ],
+            [
+                'id' => '14',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMGL2467.JPG',
+                'category_id' => '3',
+            ],
+            [
+                'id' => '15',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMGL2464.JPG',
+                'category_id' => '2',
+            ],
+            [
+                'id' => '16',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6176.JPG',
+                'category_id' => '1',
+            ],
+            [
+                'id' => '17',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMG_6173.JPG',
+                'category_id' => '4',
+            ],
+            [
+                'id' => '18',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMGL2510.JPG',
+                'category_id' => '3',
+            ],
+            [
+                'id' => '19',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMGL2500.JPG',
+                'category_id' => '2',
+            ],
+            [
+                'id' => '20',
+                'name' => 'Lorem ipsum dolor sit amet.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab molestiae, consequuntur. Non corporis pariatur nihil, blanditiis sunt cumque obcaecati, cupiditate?',
+                'year' => '2000-01-01',
+                'photo' => 'IMGL2478.JPG',
+                'category_id' => '1',
+            ],
+
+        ];
+        foreach ($artifacts as $artifact) {
+            Artifact::create($artifact);
+        }
+    }
+}

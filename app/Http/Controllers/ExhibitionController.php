@@ -38,6 +38,7 @@ class ExhibitionController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request->all());
         if ($request->hasFile('photo')) {
             $photo = $request->file('photo');
             $destinationPath = public_path('images/exhibitions');
@@ -55,7 +56,7 @@ class ExhibitionController extends Controller
                     'photo' => $filename,
                 ]);
 
-                if ($newArt) {return redirect()->route('exhibition.index')->with('success', 'You have updated exhibition ');} else {
+                if ($newArt) {return redirect()->route('exhibitions.index')->with('success', 'You have Added exhibition ');} else {
                     return back()->withInput();
                 }
             } else {

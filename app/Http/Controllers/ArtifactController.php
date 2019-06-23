@@ -17,7 +17,6 @@ class ArtifactController extends Controller
 
     }
 
-
     public function create()
     {
         //
@@ -25,34 +24,34 @@ class ArtifactController extends Controller
         return view('artifact.create', compact('categories'));
     }
 
-
     public function store(Request $request)
     {
-        if($request->hasFile('photo')){
+
+        // error check file extension in case which is not sensitive
+        // dd($request->all());
+        if ($request->hasFile('photo')) {
             $photo = $request->file('photo');
             $destinationPath = public_path('images/artifacts');
-            $allowedfileExtension=['jpeg','jpg','png'];
+            $allowedfileExtension = ['jpeg', 'jpg', 'png', 'JPG', 'JPEG', 'PNG'];
             $extension = $photo->getClientOriginalExtension();
-            $check=in_array($extension,$allowedfileExtension);
+            $check = in_array($extension, $allowedfileExtension);
             if ($check) {
                 $filename = time() . $photo->getClientOriginalName();
                 $photo->move($destinationPath, $filename);
                 $newArt = Artifact::create([
                     'name' => $request->get('name'),
-                    'description'=> $request->get('description'),
-                    'year'=> $request->get('year'),
-                    'photo'=>$filename,
-                    'category_id'=> $request->get('category_id'),
-                  ]);
-                  if($newArt)
-                  {return redirect()->route('artifact.index')->with('success', 'You have updated artifact ');}
-               else{
-                return back()->withInput();
-               }
-            }else{
-                return redirect()->back()->with('error', 'unsupported image ');
+                    'description' => $request->get('description'),
+                    'year' => $request->get('year'),
+                    'photo' => $filename,
+                    'category_id' => $request->get('category_id'),
+                ]);
+                if ($newArt) {return redirect()->route('artifact.index')->with('success', 'You have updated artifact ');} else {
+                    return back()->withInput();
+                }
+            } else {
+                return redirect()->back()->with('error', 'unsupported image type! allowed [ jpeg jpg, png ] ');
             }
-        }else{
+        } else {
             return redirect()->back()->with('error', 'please upload image ');
         }
 
@@ -63,12 +62,12 @@ class ArtifactController extends Controller
         //
         $artifact = Artifact::find($artifact->id);
         $categories = ArtifactCategory::all();
-        return view('artifact.edit', compact('categories','artifact'));
+        return view('artifact.edit', compact('categories', 'artifact'));
     }
     public function show()
     {
-      $gallery = Artifact::all();
-      return view('index', compact('gallery'));
+        $gallery = Artifact::all();
+        return view('home.gallery', compact('gallery'));
     }
     /**
      * Update the specified resource in storage.
@@ -82,7 +81,6 @@ class ArtifactController extends Controller
         // dd($request->all());
         //
         $artifact = Artifact::find($artifact->id);
-
 
         $artifact->name = $request->get('name');
         $artifact->description = $request->get('description');
@@ -106,15 +104,11 @@ class ArtifactController extends Controller
 
         //         $artifact->year=$filename;
 
-        if($artifact->save())
-        {
-            return redirect()->route('artifact.index')->with('success', 'You have updated artifact named '. $artifact->name);
-        }
-        else
-        {
+        if ($artifact->save()) {
+            return redirect()->route('artifact.index')->with('success', 'You have updated artifact named ' . $artifact->name);
+        } else {
             return back()->withInput();
         }}
-
 
     /**
      * Remove the specified resource from storage.
@@ -133,8 +127,7 @@ class ArtifactController extends Controller
             # code...
             @unlink(public_path('/images/artifacts/' . $image));
             return redirect()->route('artifact.index')->with('success', 'artifact deleted Successfully');
-        }else
-        {
+        } else {
             return redirect()->back()->withInput();
         }
     }

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Artifact;
-use App\ArtifactCategory;
-use App\User;
-use App\VisitSchedule;
 use Mail;
+use App\User;
+use App\Artifact;
+use App\VisitSchedule;
+use App\ArtifactCategory;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -27,6 +29,32 @@ class AdminController extends Controller
                 'visitSchedule' => $visitSchedule,
             ]);
 
+    }
+    public function profile()
+    {
+        $user = Auth::User();
+        return view('auth.profile', compact('user'));
+    }
+    public function editProfile(Request $request, $id)
+    {
+
+        $updateUser = User::where('id', $id)->update(
+            [
+                'firstName' => $request->input('fname'),
+                'lastName' => $request->input('lname'),
+                'email' => $request->input('email'),
+                'phone' => $request->input('phone'),
+                'dateOfBirth' => $request->input('dateOfBirth'),
+                'gender' => $request->input('gender'),
+                'role_id' => Auth::user()->role_id,
+            ]);
+        if ($updateUser) {
+//        if ($updateUser->save()) {
+            # code...
+            return redirect('admin/profile')->with('success', 'User Updated Successfully');
+        } else {
+            return redirect()->back()->withInput();
+        }
     }
 
     public function contactUSPost(Request $request)

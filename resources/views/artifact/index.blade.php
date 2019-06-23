@@ -36,7 +36,7 @@
                                              <tr>
                                                 <th>{{$artifact->name}}</th>
                                                 <th>{{ str_limit($artifact->description, $limit = 75, $end = '...') }}</th>
-                                                <th><img src="images/artifacts/{{$artifact->photo}}" height="100" width="150"></th>
+                                                <th><img src="{{asset('images/artifacts')}}/{{$artifact->photo}}" height="100" width="150"></th>
                                                 <th>{{$artifact->year}}</th>
                                                 <th>{{$artifact->artifactCategory->name}}</th>
                                                 <td>
