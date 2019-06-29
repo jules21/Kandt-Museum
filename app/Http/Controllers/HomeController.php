@@ -65,6 +65,10 @@ class HomeController extends Controller
     {
         return view('home.ticket');
     }
+    public function workTime()
+    {
+        return view('home.work');
+    }
     public function bookTicket(Request $request)
     {
         // return view('home.ticket');

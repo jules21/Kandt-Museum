@@ -46,7 +46,7 @@
 							    	<p>
 							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
 							    	</p>
-							    	<a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+							    	<a href=" {{url('work')}} " class="text-uppercase primary-btn">Work Schedule</a>
 							    </div>
 							  </div>
 							</div>

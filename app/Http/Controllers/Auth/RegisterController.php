@@ -28,7 +28,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/dashboard';
+    // protected $redirectTo = '/admin/dashboard';
+    public function redirectTo()
+    {
+
+        if (Auth()->user()->isManager()) {
+            return '/admin/dashboard';
+        } else {
+            return '/';
+        }
+
+    }
 
     /**
      * Create a new controller instance.

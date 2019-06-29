@@ -23,9 +23,10 @@ Route::get('/gallery', 'HomeController@gallery');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/login', 'HomeController@login');
 Route::get('/register', 'HomeController@register');
+Route::get('/work', 'HomeController@workTime');
 Route::post('/ticket', 'HomeController@bookTicket')->name('bookTicket');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'isManager'], function () {
     Route::get('/dashboard', 'AdminController@index');
     Route::get('/profile', 'AdminController@profile')->name('manager.profile');
     Route::post('/profile/{id?}/edit', 'AdminController@editProfile')->name('manager.editProfile');

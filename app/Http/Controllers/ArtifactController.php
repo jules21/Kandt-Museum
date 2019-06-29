@@ -45,7 +45,7 @@ class ArtifactController extends Controller
                     'photo' => $filename,
                     'category_id' => $request->get('category_id'),
                 ]);
-                if ($newArt) {return redirect()->route('artifact.index')->with('success', 'You have updated artifact ');} else {
+                if ($newArt) {return redirect()->route('artifact.index')->with('success', 'You have Added artifact ');} else {
                     return back()->withInput();
                 }
             } else {

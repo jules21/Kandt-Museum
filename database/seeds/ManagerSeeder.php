@@ -15,7 +15,7 @@ class ManagerSeeder extends Seeder
         //
         $users =
         [
-           ['id'=>'1','name'=>'Manager', 'email'=>'admin@artmuseum.rw', 'password'=>'$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm','role_id'=>'2' ]
+           ['id'=>'1','name'=>'Manager', 'email'=>'admin@artmuseum.rw', 'password'=>'$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm','role_id'=>'1' ]
 
        ];
        

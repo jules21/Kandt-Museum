@@ -38,10 +38,18 @@ class User extends Authenticatable
     ];
     public function role()
     {
-        return $this->belongsTo('App\Role');
+        return $this->belongsTo('App\Role','role_id');
     }
     public function ticket()
     {
         return $this->hasOne('App\Ticket');
     }
+    public function isManager()
+    {
+        if ($this->role->name == 'Manager')
+        {
+            return true;
+        }
+    }
+    
 }

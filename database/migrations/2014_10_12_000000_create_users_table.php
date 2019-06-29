@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->date('dateOfBirth')->nullable();
             $table->enum('gender', ['Male','Female'])->nullable();
             $table->integer('role_id')->unsigned()->default(2);
-            $table->foreign('role_id')->references('id')->on('roles');
+            // $table->foreign('role_id')->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
         });

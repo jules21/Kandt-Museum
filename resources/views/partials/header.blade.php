@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-6 top-head-left">
                     <ul>
-                        <li><a href="#">Visit Us</a></li>
+                        {{-- <li><a href="#">Visit Us</a></li> --}}
                         <li><a href="#">Buy Ticket</a></li>
                     </ul>
                 </div>
@@ -11,8 +11,8 @@
                     <ul>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                       <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                      <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                      {{-- <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                      <li><a href="#"><i class="fa fa-behance"></i></a></li> --}}
                     </ul>
                 </div>
             </div>
@@ -28,14 +28,14 @@
             <nav id="nav-menu-container">
                   <ul class="nav-menu">
                     <li class="menu-active"><a href="/">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="gallery">Gallery</a></li>
-                    <li><a href="event">Events</a></li>
-                    <li><a href="ticket">Ticket</a></li>
-                    <li><a href="contact">Contact</a></li>
+                    <li><a href="{{url('about')}}">About</a></li>
+                    <li><a href="{{url('gallery')}}">Gallery</a></li>
+                    <li><a href="{{url('event')}}">Events</a></li>
+                    <li><a href="{{url('ticket')}}">Ticket</a></li>
+                    <li><a href="{{url('contact')}}">Contact</a></li>
                     
                     @if (Auth::check())
-                    <li class="menu-has-children"><a href="#">{{ Auth::user()->name }}</a>
+                    <li class="menu-has-children"><a href="#">{{ Auth::user()->role->name }}</a>
                       <ul>
                         <li>
                           <a href="{{ route('logout') }}"
@@ -50,7 +50,7 @@
                       </ul>
                     </li> 
                     @else
-                    <li><a href="login">Login</a></li>  
+                    <li><a href="{{url('login')}}">Login</a></li>  
                     @endif
                   </ul>
                 </nav>
