@@ -93,4 +93,8 @@ class HomeController extends Controller
             return \redirect('login')->with('error', 'must have an Account in order to Book a Ticket');
         }
     }
+    public function barcode()
+{
+    return view('barcode');
+}
 }
