@@ -27,6 +27,7 @@ Route::get('/gallery',function(){
 Route::get('/event',function(){
   return view('event');
 });
+Route::get('barcode', 'HomeController@barcode');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', 'AdminController@index');
