@@ -1,6 +1,6 @@
 @extends('layouts.main');
-@section('title', 'Exhibitions')
-@section('page', 'Events')
+@section('title', 'Artifacts')
+@section('page', 'Buy')
 
 @section('content')
 			<!-- Start blog-posts Area -->
@@ -18,23 +18,23 @@
 							<div class="col-lg-8 post-list blog-post-list">
 			<!-- Start upcoming-event Area -->
 						<div class="row">
-							@if (!$events->isEmpty())
-								@foreach ($events as $event)
-								<div class="col-lg-6 event-left">
-										<div class="single-events">
-											<img class="" src="images/exhibitions/{!! $event->photo !!}" alt=""  height="250" width="350">
-											<a href="#"><h4> {{$event->title}} </h4></a>
-											<h6><span> {{$event->date }} </span> at Kandt House museum</h6>
+							@if (!$products->isEmpty())
+								@foreach ($products as $product)
+								<div class="col-lg-6 product-left">
+										<div class="single-products">
+											<img class="" src="images/artifacts/{!! $product->photo !!}" alt=""  height="250" width="350">
+											<a href="#"><h4> {{$product->name}} </h4></a>
+											<h6><span> {{$product->year }} </span> at Kandt House museum</h6>
 											<p>
-												{{$event->description}}
+												{{$product->description}}
 											</p>
-											<a href=" {{route('event.show', $event->id)}} " class="primary-btn text-uppercase">view details</a>
+											<a href=" {{route('event.show', $product->id)}} " class="primary-btn text-uppercase">view details</a>
 										</div>
 									</div>
 								@endforeach
 							@else
 							<div class="alert alert-info alert-dismissible" role="alert">
-									<strong>No Event</strong>
+									<strong>No Artifact To sell!</strong>
 									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									  <span aria-hidden="true">&times;</span>
 									</button>

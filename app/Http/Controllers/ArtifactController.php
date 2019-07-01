@@ -45,7 +45,12 @@ class ArtifactController extends Controller
                     'photo' => $filename,
                     'category_id' => $request->get('category_id'),
                 ]);
-                if ($newArt) {return redirect()->route('artifact.index')->with('success', 'You have Added artifact ');} else {
+                if ($request->get('affordable') != null) {
+                    $newArt->affordable = 1;
+                } else {
+                    $newArt->affordable = 0;
+                }
+                if ($newArt->save()) {return redirect()->route('artifact.index')->with('success', 'You have Added artifact ');} else {
                     return back()->withInput();
                 }
             } else {
@@ -86,6 +91,11 @@ class ArtifactController extends Controller
         $artifact->description = $request->get('description');
         $artifact->year = $request->get('year');
         $artifact->category_id = $request->get('category_id');
+        if ($request->get('affordable') != null) {
+            $artifact->affordable = 1;
+        } else {
+            $artifact->affordable = 0;
+        }
 
         // if($request->get('photo') == null){
         //     $artifact->save();

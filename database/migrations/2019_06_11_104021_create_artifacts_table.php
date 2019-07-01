@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateArtifactsTable extends Migration
 {
@@ -19,6 +19,7 @@ class CreateArtifactsTable extends Migration
             $table->longText('description');
             $table->string('photo');
             $table->date('year');
+            $table->boolean('affordable')->default(0);
             $table->integer('category_id')->unsigned();
             // $table->foreign('category_id')->references('id')->on('artifact_categories');
             $table->timestamps();

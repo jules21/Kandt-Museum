@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Mail;
-use App\User;
 use App\Artifact;
-use App\VisitSchedule;
 use App\ArtifactCategory;
+use App\User;
+use App\VisitSchedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,23 +56,4 @@ class AdminController extends Controller
         }
     }
 
-    public function contactUSPost(Request $request)
-    {
-        $this->validate($request, ['name' => 'required', 'email' => 'required|email', 'message' => 'required']);
-        ContactUS::create($request->all());
-
-        $sender = $request->get('email');
-        $receiver = 'julesfabien96@gmail.com';
-
-        Mail::send('email',
-            array(
-                'name' => $request->get('name'),
-                'email' => $request->get('email'),
-                'user_message' => $request->get('message'),
-            ), function ($message) {
-                $message->from($sender);
-                $message->to($receiver, 'Admin')->subject('Kandt Museum Feedback');
-            });
-        return back()->with('success', 'Thanks for contacting us!');
-    }
 }

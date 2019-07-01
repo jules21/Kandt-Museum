@@ -24,7 +24,7 @@
 
                      <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
-                                        <img src="{{ asset('images/artifacts/'.$artifact->photo) }}" alt="" class="img-field">
+                                        <img src="{{ asset('images/artifacts/'.$artifact->photo) }}" alt="" class="img-field" width="300" height="250">
                                         <input class="form-control" type="file" id="example-number-input" name="photo">
                                     </div>
                                 </div>
@@ -37,6 +37,14 @@
                             @endforeach                           
                             
                         </select></div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-sm-2 col-form-label">Sell it? </label>
+                    <div class="col-sm-10">
+                            <input type="checkbox" id="switch3" switch="bool" {!! $artifact->affordable?"checked":""!!} name="affordable">
+                            <label for="switch3" data-on-label="Yes" data-off-label="No"></label>
+                    </div>
                 </div>
 
                 <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">Description</label>

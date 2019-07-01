@@ -51,7 +51,8 @@
                         <div class="dropdown notification-list nav-pro-img"><a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <img src="{{asset('img/user-avatar.png')}}" alt="user" class="rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown">
-                                <!-- item--> <a class="dropdown-item" href="{{route('manager.profile')}}"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
+                                <!-- item--> 
+                                <a class="dropdown-item" href="{{route('manager.profile')}}"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
                                 <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="mdi mdi-power text-danger"></i> Logout</a>
 
@@ -86,7 +87,7 @@
                     <!-- Left Menu Start -->
                     <ul class="metismenu" id="side-menu">
                         <li class="menu-title">DashBoard</li>
-                        <li><a href="{{url('admin/dashboard')}}" class="waves-effect"><i class="mdi mdi-calendar-check"></i><span> Profile</span></a></li>
+                        <li><a href="{{url('admin/profile')}}" class="waves-effect"><i class="mdi mdi-calendar-check"></i><span> Profile</span></a></li>
                         <li><a href="javascript:void(0);" class="waves-effect"><i class="fas fa-university"></i><span> Artifact <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>
                             <ul class="submenu">
                                 <li><a href="{{route('artifact.index')}}">All Artifacts</a></li>

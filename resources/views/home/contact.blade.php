@@ -46,7 +46,7 @@
 							</div>														
 						</div>
 						<div class="col-lg-8">
-							<form class="form-area " id="myForm" action="{{route('contactus.store')}}" method="post" class="contact-form text-right">
+							<form class="form-area " action="{{route('contactus.store')}}" method="post" class="contact-form text-right">
 								{{ csrf_field() }}
 								<div class="row">	
 									<div class="col-lg-6 form-group">

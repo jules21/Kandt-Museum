@@ -37,6 +37,12 @@
                     @if (Auth::check())
                     <li class="menu-has-children"><a href="#">{{ Auth::user()->role->name }}</a>
                       <ul>
+                        @if (Auth::user()->isManager())
+                        <li>
+                            <a href="{{ route('manager.dashboard') }}">
+                                  {{ __('Dashboard') }}
+                              </a>
+                        @endif
                         <li>
                           <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();

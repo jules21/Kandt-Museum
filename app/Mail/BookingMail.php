@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class BookingMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,14 +30,16 @@ class ContactMail extends Mailable
      */
     public function build()
     {
+        $subject = 'Book Reservation on Exhibition at kandt Museum';
         $content = $this->messages;
         $data = [
-            'name' => $content['name'],
-            'subject' => $content['subject'],
+            'names' => $content['names'],
+            'subject' => $subject,
             'email' => $content['email'],
-            'message' => $content['message'],
+            'exhibition_title' => $content['exhibition_title'],
+            'exhibition_description' => $content['exhibition_description'],
         ];
-        return $this->subject($content['subject'])
-            ->view('email.contact', compact('data'));
+        return $this->subject($subject)
+            ->view('email.booking', compact('data'));
     }
 }

@@ -35,6 +35,13 @@
                             
                         </select></div>
                 </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-sm-2 col-form-label">Sell it? </label>
+                    <div class="col-sm-10">
+                            <input type="checkbox" id="switch3" switch="bool" checked="checked" name="affordable">
+                            <label for="switch3" data-on-label="Yes" data-off-label="No"></label>
+                    </div>
+                </div>
 
                 <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10"><textarea required class="form-control" rows="5" name="description"></textarea></div>
