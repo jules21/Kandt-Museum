@@ -162,7 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
-        // Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -227,10 +227,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
 
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
-        // 'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
 
     ],
 

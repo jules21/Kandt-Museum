@@ -65,7 +65,7 @@
 							    	<p>
 							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
 							    	</p>
-							    	<a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+							    	<a href="{{ url('event') }}" class="text-uppercase primary-btn">Buy ticket</a>
 							    </div>
 							  </div>
 							</div>
@@ -73,7 +73,7 @@
 						<div class="col-lg-4">
 							<div class="single-service">
 							  <span class="lnr lnr-briefcase"></span>
-							  <h4>Openning Events</h4>
+							  <h4>best affordable artifacts</h4>
 							  <p>
 							  	Mon - Fri: 10.00am to 05.00pm
 								Sat: 12.00pm to 03.00 pm
@@ -84,7 +84,7 @@
 							    	<p>
 							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
 							    	</p>
-							    	<a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+							    	<a href=" {{url('artifact')}} " class="text-uppercase primary-btn">Buy ticket</a>
 							    </div>
 							  </div>
 							</div>

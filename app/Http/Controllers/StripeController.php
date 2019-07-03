@@ -36,7 +36,8 @@ public function payStripe(Request $request)
         'cvv' => 'required',
     ]);
  
-$stripe = Stripe::make('sk_test_K0ThsZWtj2g1AorbBQDcV2h5');
+// $stripe = Stripe::make('sk_test_K0ThsZWtj2g1AorbBQDcV2h5');
+$stripe = Stripe::setApiKey(env('STRIPE_SECRET'));
 try {
     $token = $stripe->tokens()->create([
         'card' => [

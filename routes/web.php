@@ -11,11 +11,11 @@
 |
  */
 
-Route::get('stripe', 'StripeController@stripe');
-Route::post('payment', 'StripeController@payStripe');
+// Route::get('stripe', 'StripeController@stripe');
+// Route::post('payment', 'StripeController@payStripe');
 
-// Route::get('stripe', 'StripePaymentController@stripe');
-// Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+Route::get('stripe', 'StripePaymentController@stripe');
+Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
 
 // Route::get('contact-us', 'ContactUSController@contactUS');
 // Route::post('contact-us', ['as' => 'contactus.store', 'uses' => '   @contactUSPost']);

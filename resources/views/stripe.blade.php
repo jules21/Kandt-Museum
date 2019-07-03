@@ -1,98 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Stripe Payment Gateway Integrate - Tutsmake.com</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-    <style>
-        .mt40{
-            margin-top: 40px;
-        }
-    </style>
-</head>
-<body>
-   
+@extends('layouts.main');
+@section('title', 'About Us')
+@section('page', 'About Us')
+
+@section('content')
 <div class="container">
- 
-<div class="row">
-    <div class="col-lg-12 mt40">
-        <div class="text-center">
-            <h2>Pay for Event</h2>
-            <br>
-        </div>
-    </div>
-</div>
-    
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> Something went wrong<br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-<div class="row">  
-    <div class="col-md-3">
-         
-    </div>
-<div class="col-md-6"> 
-<form accept-charset="UTF-8" action="{{url('payment')}}" class="require-validation"
-    data-cc-on-file="false"
-    data-stripe-publishable-key="test_public_key"
-    id="payment-stripe" method="post">
-    {{ csrf_field() }}
-    <div class='row'>
-        <div class='col-xs-12 form-group'>
-            <label class='control-label'>Name on Card</label> <input
-                class='form-control' size='4' type='text'>
-        </div>
-    </div>
-    <div class='row'>
-        <div class='col-xs-12 form-group'>
-            <label class='control-label'>Card Number</label> <input
-                autocomplete='off' class='form-control' size='20'
-                type='text' name="card_no">
-        </div>
-    </div>
-    <div class='row'>
-        <div class='col-xs-4 form-group'>
-            <label class='control-label'>CVC</label> <input autocomplete='off'
-                class='form-control' placeholder='ex. 311' size='3'
-                type='text' name="cvv">
-        </div>
-        <div class='col-xs-4 form-group'>
-            <label class='control-label'>Expiration</label> <input
-                class='form-control' placeholder='MM' size='2'
-                type='text' name="expiry_month">
-        </div>
-        <div class='col-xs-4 form-group'>
-            <label class='control-label'> </label> <input
-                class='form-control' placeholder='YYYY' size='4'
-                type='text' name="expiry_year">
-        </div>
-    </div>
-    <div class='row'>
-        <div class='col-md-12'>
-            <div class='form-control total btn btn-info'>
-                Total: <span class='amount'>$20</span>
+    <div class="row">
+        <div class="col-md-6 offset-md-2 mt-4">
+            <div class="card card-body">
+                    <div class="row display-tr">
+                            <h3 >Payment Details</h3>
+                            <div>                            
+                                <img src="http://i76.imgup.net/accepted_c22e0.png">
+                            </div>
+                        </div>
+                <span class="text-center text-capitalize text-info">price 25$</span>
             </div>
+
+   <form action=" {{route('stripe.post')}} " method="post" id="payment-form">
+    @csrf
+    <input type="hidden" name="amount" value="2500">
+      <div class="form-group">
+         <label for="firstname">first name</label>
+          <input type="text" name="firstname" class="form-control">
+      </div>
+      <div class="form-group">
+         <label for="lastname">last name</label>
+          <input type="text" name="lastname" class="form-control">
+      </div>
+      <div class="form-group">
+         <label for="email">email</label>
+          <input type="email" name="email" class="form-control">
+      </div>
+
+       <div class="form-group">
+           <label for="card-element">
+               Credit or debit card
+           </label>
+           <div id="card-element">
+<!--               stripe Element will be inserted here-->
+           </div>
+<!--           used to display Element Errors-->
+           <div id="card-errors" role="alert"></div>
+       </div>
+       <button>Submit Payment</button>
+   </form>
+
+
         </div>
     </div>
-    <div class='row'>
-        <div class='col-md-12 form-group'>
-            <button class='form-control btn btn-primary submit-button'
-                type='submit' style="margin-top: 10px;">Pay »</button>
-        </div>
-    </div>
- 
-</form>
 </div>
-</div>
-    
-</body>
-</html>
+ <script src="https://js.stripe.com/v3/"></script>
+   <script src="{{asset('js/charge.js')}}"></script>
+   @endsection
