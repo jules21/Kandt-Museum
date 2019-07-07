@@ -11,11 +11,11 @@
 |
  */
 
-// Route::get('stripe', 'StripeController@stripe');
+Route::get('chart', 'ReportsController@chart');
 // Route::post('payment', 'StripeController@payStripe');
 
-Route::get('stripe', 'StripePaymentController@stripe');
-Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+Route::get('payment/{id?}', 'StripePaymentController@stripe');
+Route::post('payment', 'StripePaymentController@stripePost')->name('stripe.post');
 
 // Route::get('contact-us', 'ContactUSController@contactUS');
 // Route::post('contact-us', ['as' => 'contactus.store', 'uses' => '   @contactUSPost']);
@@ -24,7 +24,7 @@ Route::get('/barcode', 'HomeController@barcode');
 Route::get('/', 'HomeController@index');
 Route::get('/artifact', 'HomeController@artifact');
 Route::get('/ticket', 'HomeController@ticket')->middleware(['auth']);
-Route::get('/booking/{id?}', 'HomeController@booking')->name('event.booking');
+Route::get('/booking/{id?}', 'HomeController@booking')->middleware(['auth'])->name('event.booking');
 Route::post('/event', 'HomeController@bookTicket')->name('bookTicket');
 Route::get('/buy', 'HomeController@buy');
 Route::get('/about', 'HomeController@about');
@@ -49,6 +49,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isManager'], function () {
     Route::resource('users', 'UsersController');
     Route::resource('locations', 'LocationController');
     Route::resource('exhibitions', 'ExhibitionController');
+    // report
+    Route::get('/soldArts', 'ReportsController@soldArtifacts')->name('report.soldArtifacts');
+    Route::get('/eventvisitors', 'ReportsController@eventvisitors')->name('report.eventvisitors');
 });
 
 Auth::routes();

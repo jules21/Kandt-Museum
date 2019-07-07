@@ -65,7 +65,7 @@
 							    	<p>
 							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
 							    	</p>
-							    	<a href="{{ url('event') }}" class="text-uppercase primary-btn">Buy ticket</a>
+							    	<a href="{{ url('event') }}" class="text-uppercase primary-btn">Book Now</a>
 							    </div>
 							  </div>
 							</div>
@@ -84,7 +84,7 @@
 							    	<p>
 							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
 							    	</p>
-							    	<a href=" {{url('artifact')}} " class="text-uppercase primary-btn">Buy ticket</a>
+							    	<a href=" {{url('artifact')}} " class="text-uppercase primary-btn">Buy It Now</a>
 							    </div>
 							  </div>
 							</div>

@@ -124,8 +124,8 @@
                         </li>
                         <li><a href="javascript:void(0);" class="waves-effect"><i class="fas fa-user-friends"></i><span> Reports<span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>
                             <ul class="submenu">
-                                <li><a href="{{route('users.index')}}">All Users</a></li>
-                                <li><a href="{{route('users.create')}}">Add New User</a></li>
+                                <li><a href="{{route('report.soldArtifacts')}}">Sold Artifacts</a></li>
+                                <li><a href="{{route('report.eventvisitors')}}">Events</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -21,12 +21,12 @@
 							<img class="" src="images/artifacts/{!! $product->photo !!}" alt=""  height="250" width="350">					
 					</div>
 					<p class="date">{{$product->year}}</p>
-					<a href="{{ url('ticket', $product->id) }}"><h4>{{$product->name }}</h4></a>
+					<a href="{{ url('payment', $product->id) }}"><h4>{{$product->name }}</h4></a>
 					<p>
 							{{$product->description}}
 					</p>
 					<div class="meta-bottom d-flex justify-content-start">
-						<p class="price">$45.00</p>
+						<p class="price">${{$product->amount}}.00</p>
 					</div>									
 				</div>
 				@endforeach

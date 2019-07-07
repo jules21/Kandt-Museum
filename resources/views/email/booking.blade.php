@@ -1,11 +1,16 @@
-exhibition Theme : {{ $data['exhibition_title'] }}
+{{-- exhibition Theme : {{ $data['exhibition_title'] }} --}}
 <p>
-Name: {{  $data['names'] }}
+{{-- Product Name: {{  $data['product_name'] }} --}}
 </p>
 <p>
 Email: {{  $data['email'] }}
 </p>
 <p>
-Message: {{ $data['exhibition_description'] }}
+{{-- product description: {{ $data['exhibition_description'] }} --}}
+</p>
+<p>
+{{-- AMOUNT: {{ $data['product_amount'] }} --}}
 </p>
 <img src="data:image/png;base64,{{DNS2D::getBarcodePNG(json_encode($data, JSON_PRETTY_PRINT), 'QRCODE')}}" alt="barcode" />
+
+

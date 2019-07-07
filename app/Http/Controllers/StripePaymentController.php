@@ -1,12 +1,15 @@
 <?php
-   
+
 namespace App\Http\Controllers;
-   
-use Stripe;
-use Session;
+
+use App\Artifact;
+use App\Mail\BuyMail;
+use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Transaction;
+use Illuminate\Support\Facades\Mail;
+use Session;
+use Stripe;
 
 class StripePaymentController extends Controller
 {
@@ -15,11 +18,13 @@ class StripePaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function stripe()
+    public function stripe($id)
     {
-        return view('stripe');
+        $product = Artifact::find($id);
+        $user = Auth::user();
+        return view('stripe', compact('product', 'user'));
     }
-  
+
     /**
      * success response method.
      *
@@ -27,48 +32,52 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
+        
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
         // Create Customer In Stripe
         $customer = Stripe\Customer::create(array(
-            "email" =>  $request->email,
+            "email" => $request->email,
             "source" => $request->stripeToken,
         ));
 
         // Charge Customer
-        $charge = Stripe\Charge::create ([
-                "amount" =>  $request->amount,
-                "currency" => "usd",
-                "customer" => $customer->id,
-                "description" => "pay Artifact kandt Museum" 
+        $charge = Stripe\Charge::create([
+            "amount" => $request->amount,
+            "currency" => "usd",
+            "customer" => $customer->id,
+            "description" => "pay Artifact kandt Museum",
         ]);
 
-        // dd($charge);
+        // Transaction Data
+        $transactionData = [
+            'id' => $charge->id,
+            'customer_id' => $charge->customer,
+            // 'user_id' => Auth::user()->id,
+            'names' =>$request->firstname ." hi ".$request->lastname,
+            'email' => $request->email,
+            'product' => $request->product_name,
+            'amount' => $charge->amount,
+            'currency' => $charge->currency,
+            'status' => $charge->status,
+            'details' => $charge->description,       
+        ];
+        //   dd($transactionData);
 
-        // Customer Data
-// $customerData = [
-//     'id' => $charge->customer,
-//     'first_name' => $request->firstname,
-//     'last_name' => $request->lastname,
-//     'email' => $request->email,
-// ];
+        $messages = [
+            "email" => $request->email,
+            "product_name" => $request->product_name,
+            "product_description" => $request->product_description,
+            "product_amount" => $request->amount,
+        ];
 
-// Transaction Data
-$transactionData = [
-    'id' => $charge->id,
-    'customer_id' => $charge->customer,
-    'user_id' =>Auth::user()->id,
-    'product' => $charge->description,
-    'amount' => $charge->amount,
-    'currency' => $charge->currency,
-    'status' => $charge->status,
-  ];
-//   dd($transactionData);
+        Transaction::create($transactionData);
+        Mail::to($request->input('email'))->send(new BuyMail($messages));
 
-  Transaction::create($transactionData);
+        return redirect()->back()->with('success', 'Booking done successfully!');
 
         Session::flash('success', 'Payment successful!');
-          
+
         return back();
     }
 }

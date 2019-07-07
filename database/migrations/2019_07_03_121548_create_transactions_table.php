@@ -16,11 +16,13 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->string('id');
             $table->string('customer_id');
-            $table->string('user_id');
+            $table->string('names');
+            $table->string('email');
             $table->string('product');
             $table->string('amount');
             $table->string('currency');
             $table->string('status');
+            $table->string('details');
             $table->timestamps();
         });
     }

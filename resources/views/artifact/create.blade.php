@@ -38,8 +38,22 @@
                 <div class="form-group row">
                     <label for="example-text-input" class="col-sm-2 col-form-label">Sell it? </label>
                     <div class="col-sm-10">
-                            <input type="checkbox" id="switch3" switch="bool" checked="checked" name="affordable">
+                            <input type="checkbox" id="switch3" switch="bool" checked="checked" name="affordable" class="checked">
                             <label for="switch3" data-on-label="Yes" data-off-label="No"></label>
+                    </div>
+                </div>
+                <div class="form-group row" id="price"><label for="example-text-input" class="col-sm-2 col-form-label">Price </label>
+                    <div class="col-sm-10">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">$</span>
+                                    </div>
+                                    <input type="number" min="0" class="form-control" name="price" aria-label="Amount (to the nearest dollar)" required>
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">.00</span>
+                                    </div>
+                                  </div>
+                        {{-- <input class="form-control" type="number" min="0" id="example-text-input" name="price"> --}}
                     </div>
                 </div>
 
@@ -62,4 +76,16 @@
         </div>
         
 
+<script>
+checkbox = document.getElementById('switch3');
+checkbox.addEventListener('click', ()=>{
+    if(!checkbox.checked){
+        // console.log('checked');
+        document.getElementById('price').style.display = 'none';
+    }else{
+        document.getElementById('price').style.display = '';
+    }
+    
+})
+</script>
 @endsection

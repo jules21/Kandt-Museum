@@ -42,6 +42,7 @@ class ArtifactController extends Controller
                     'name' => $request->get('name'),
                     'description' => $request->get('description'),
                     'year' => $request->get('year'),
+                    'amount' => $request->get('price'),
                     'photo' => $filename,
                     'category_id' => $request->get('category_id'),
                 ]);
@@ -90,6 +91,7 @@ class ArtifactController extends Controller
         $artifact->name = $request->get('name');
         $artifact->description = $request->get('description');
         $artifact->year = $request->get('year');
+        $artifact->amount = $request->get('price');
         $artifact->category_id = $request->get('category_id');
         if ($request->get('affordable') != null) {
             $artifact->affordable = 1;

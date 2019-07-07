@@ -8,12 +8,34 @@ use App\User;
 use App\VisitSchedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class AdminController extends Controller
 {
     //
     public function index()
     {
+        $chart_options2 = [
+            'chart_title' => 'monthly Visitor',
+            'report_type' => 'group_by_date',
+            'model' => 'App\Exhibition',
+            'group_by_field' => 'created_at',
+            'group_by_period' => 'month',
+            'chart_type' => 'bar',
+        ];
+        $chart_options = [
+            'chart_title' => 'Sold Artifacts monthly',
+            'report_type' => 'group_by_date',
+            'model' => 'App\Transaction',
+            'group_by_field' => 'created_at',
+            'group_by_period' => 'month',
+            'chart_type' => 'bar',
+        ];
+        $chart1 = new LaravelChart($chart_options);
+        $chart2 = new LaravelChart($chart_options2);
+        // $chart = new VisitorChart;
+        // $chart->labels(['One', 'Two', 'Three', 'Four']);
+        // $chart->dataset('My dataset', 'line', [1, 2, 3, 4]);
         //
         $users = User::all();
         $artifact = Artifact::all();
@@ -26,6 +48,8 @@ class AdminController extends Controller
                 'artifact' => $artifact,
                 'artifactCategory' => $artifactCategory,
                 'visitSchedule' => $visitSchedule,
+                'chart1' => $chart1,
+                'chart2' => $chart2,
             ]);
 
     }
