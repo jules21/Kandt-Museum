@@ -1,6 +1,6 @@
 @extends('layouts.main');
-@section('title', 'About Us')
-@section('page', 'About Us')
+@section('title', 'Artifacts')
+@section('page', 'Affordable Artifacts')
 
 @section('content')
 <section class="upcoming-exibition-area section-gap">
@@ -8,7 +8,7 @@
 			<div class="row d-flex justify-content-center">
 				<div class="menu-content pb-70 col-lg-8">
 					<div class="title text-center">
-						<h1 class="mb-10">Ongoing Exhibitions from the scratch</h1>
+						<h1 class="mb-10">best affordable artifacts</h1>
 						<p>Who are in extremely love with eco friendly system.</p>
 					</div>
 				</div>

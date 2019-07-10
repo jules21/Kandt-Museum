@@ -34,7 +34,7 @@ class StripePaymentController extends Controller
     public function stripePost(Request $request)
     {
 
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe\Stripe::setApiKey('sk_test_q8fgkLgGfOh2tjR85monE4Kc00qFTF3jgU');
 
         // Create Customer In Stripe
         $customer = Stripe\Customer::create(array(

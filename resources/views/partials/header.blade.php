@@ -3,8 +3,8 @@
             <div class="row">
                 <div class="col-6 top-head-left">
                     <ul>
-                        {{-- <li><a href="#">Visit Us</a></li> --}}
-                        <li><a href="#">Buy Ticket</a></li>
+                        <li><a href="{{url('about')}}">Visit Us</a></li> 
+                        <li><a href="{{url('artifact')}}">Buy </a></li>
                     </ul>
                 </div>
                 <div class="col-6 top-head-right">
@@ -31,7 +31,7 @@
                     <li><a href="{{url('about')}}">About</a></li>
                     <li><a href="{{url('gallery')}}">Gallery</a></li>
                     <li><a href="{{url('events')}}">Events</a></li>
-                    <li><a href="{{url('ticket')}}">Ticket</a></li>
+                    <li><a href="{{url('artifact')}}">Buy</a></li>
                     <li><a href="{{url('contact')}}">Contact</a></li>
                     
                     @if (Auth::check())
