@@ -26,7 +26,7 @@
                                             {{ $event->description }}
 									</p>
                                     <div class="meta-bottom d-flex justify-content-between">
-                                        <a href="{{route('event.booking', $event->id)}}" class="primary-btn text-uppercase">Book Now</a>
+                                        <a href="{{route('events.edit', $event->id)}}" class="primary-btn text-uppercase">Book Now</a>
                                     </div>	
 
 									{{-- <blockquote class="generic-blockquote">

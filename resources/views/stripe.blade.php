@@ -45,7 +45,7 @@
 <!--           used to display Element Errors-->
            <div id="card-errors" role="alert"></div>
        </div>
-       <button>Submit Payment</button>
+       <button data-style="expand-left">Submit Payment</button>
    </form>
 
 
@@ -53,8 +53,8 @@
     </div>
 </div>
 <hr>
-<div class="container">
-    <div class="row" style="padding-top:25px; padding-bottom:25px;">
+    {{-- <div class="container">
+        <div class="row" style="padding-top:25px; padding-bottom:25px;">
         <div class="col-md-12">
             <div id="mainContentWrapper">
                 <div class="col-md-8 col-md-offset-2">
@@ -357,7 +357,7 @@
                 
             </div>
         </div>
-    </div></div>
+    </div></div> --}}
  <script src="https://js.stripe.com/v3/"></script>
    <script src="{{asset('js/charge.js')}}"></script>
    @endsection

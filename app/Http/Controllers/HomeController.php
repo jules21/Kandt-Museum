@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
+
 class HomeController extends Controller
 {
     /**
@@ -34,6 +35,7 @@ class HomeController extends Controller
     {
         $events = Exhibition::all();
         $gallery = DB::table('artifacts')->inRandomOrder()->take(8)->get();
+
         return view('home.index', compact('gallery', 'events'));
     }
     public function about()
@@ -127,8 +129,7 @@ class HomeController extends Controller
     }
     public function bookTicket(Request $request)
     {
-
-        $events = DB::table('tickets')->where('exhibition_id', '=', $request->input('exhibition_id'))->get();
+        $events = DB::table('tickets')->where('exhibition_id', '=', $request->exhibition_id)->get();
 
         if (!$events->isEmpty()) {
             foreach ($events as $event) {
@@ -136,10 +137,27 @@ class HomeController extends Controller
                     return \redirect()->back()->with('error', 'already booked');
                 } else {
                     $this->bookNow($request);
+                    return \redirect()->back()->with('success', 'booked successful');
                 }
             }
         } else {
-            $this->bookNow($request);
+            $this->validate($request, [
+                "names" => "required",
+                "phone" => "required",
+                "email" => "required",
+            ]);
+
+            $slug = uniqid();
+            Ticket::create(
+                [
+                    'names' => $request->input('names'),
+                    'phone' => $request->input('phone'),
+                    'exhibition_title' => $request->input('exhibition_title'),
+                    'exhibition_id' => $request->input('exhibition_id'),
+                    'user_id' => Auth::user()->id,
+                    'slug' => $slug,
+                ]);
+            return \redirect()->back()->with('success', 'booked successful');
         }
     }
     public function barcode()
@@ -193,4 +211,5 @@ class HomeController extends Controller
         //     });
         // return back()->with('success', 'Thanks for contacting us!');
     }
+    
 }

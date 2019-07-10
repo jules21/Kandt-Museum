@@ -8,7 +8,8 @@ use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Session;
+use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
 use Stripe;
 
 class StripePaymentController extends Controller
@@ -32,7 +33,7 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
-        
+
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
         // Create Customer In Stripe
@@ -48,21 +49,22 @@ class StripePaymentController extends Controller
             "customer" => $customer->id,
             "description" => "pay Artifact kandt Museum",
         ]);
-
+        // dd($request->all());
         // Transaction Data
         $transactionData = [
             'id' => $charge->id,
             'customer_id' => $charge->customer,
             // 'user_id' => Auth::user()->id,
-            'names' =>$request->firstname ." hi ".$request->lastname,
+            'names' => $request->firstname . " " . $request->lastname,
             'email' => $request->email,
             'product' => $request->product_name,
             'amount' => $charge->amount,
             'currency' => $charge->currency,
             'status' => $charge->status,
-            'details' => $charge->description,       
+            'details' => $charge->description,
         ];
-        //   dd($transactionData);
+        Transaction::create($transactionData);
+        // dd($transactionData);
 
         $messages = [
             "email" => $request->email,
@@ -71,13 +73,9 @@ class StripePaymentController extends Controller
             "product_amount" => $request->amount,
         ];
 
-        Transaction::create($transactionData);
         Mail::to($request->input('email'))->send(new BuyMail($messages));
 
-        return redirect()->back()->with('success', 'Booking done successfully!');
-
-        Session::flash('success', 'Payment successful!');
-
-        return back();
+        Alert::success('THANKS FOR SHOPPING WITH US', 'please check your email for more...')->persistent('Close');
+        return Redirect::to('artifacts');
     }
 }

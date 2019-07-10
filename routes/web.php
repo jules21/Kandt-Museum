@@ -37,6 +37,7 @@ Route::post('/contact', 'HomeController@contactUSPost')->name('contactus.store')
 Route::get('/login', 'HomeController@login');
 Route::get('/register', 'HomeController@register');
 Route::get('/work', 'HomeController@workTime');
+Route::resource('/events', 'TicketsController');
 // Route::post('/ticket', 'HomeController@bookTicket')->name('bookTicket');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'isManager'], function () {

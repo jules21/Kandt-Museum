@@ -21,7 +21,8 @@
 																	<h5>Booking Form</h5>
 																	<hr>
 				<div class="form-group">
-					<form action=" {{route('bookTicket')}} " method="post">
+					<form action=" {{route('events.update',$event->id)}} " method="post">
+						<input type="hidden" name="_method" value="PUT">
 						@csrf
 						<input type="hidden" value="{{$event->title}}" name="exhibition_title">
 						<input type="hidden" value="{{$event->id}}" name="exhibition_id">

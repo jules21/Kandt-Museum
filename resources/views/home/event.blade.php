@@ -28,7 +28,7 @@
 											<p>
 												{{$event->description}}
 											</p>
-											<a href=" {{route('event.show', $event->id)}} " class="primary-btn text-uppercase">view details</a>
+											<a href=" {{route('events.show', $event->id)}} " class="primary-btn text-uppercase">view details</a>
 										</div>
 									</div>
 								@endforeach

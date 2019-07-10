@@ -30,7 +30,7 @@
                     <li class="menu-active"><a href="/">Home</a></li>
                     <li><a href="{{url('about')}}">About</a></li>
                     <li><a href="{{url('gallery')}}">Gallery</a></li>
-                    <li><a href="{{url('event')}}">Events</a></li>
+                    <li><a href="{{url('events')}}">Events</a></li>
                     <li><a href="{{url('ticket')}}">Ticket</a></li>
                     <li><a href="{{url('contact')}}">Contact</a></li>
                     

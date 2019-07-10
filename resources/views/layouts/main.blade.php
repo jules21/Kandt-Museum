@@ -28,6 +28,7 @@
 		<link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
 		<link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
 		<link rel="stylesheet" href="{{asset('css/main.css')}}">
+		<link rel="stylesheet" href="{{asset('/css/ladda-themeless.min.css')}}">
 	</head>
 	<body>
 		@include('partials.header')
@@ -68,6 +69,10 @@
 		<script src="{{asset('js/parallax.min.js')}}"></script>
 		<script src="{{asset('js/mail-script.js')}}"></script>
 		<script src="{{asset('js/main.js')}}"></script>
+		@include('sweetalert::alert')
+		<script src="{{asset('/js/spin.min.js')}}"></script>
+		 <script src="{{asset('/js/ladda.min.js')}}"></script>
+		 <script src="{{asset('/js/custom_script.js')}}"></script>
 
 
 	</body>

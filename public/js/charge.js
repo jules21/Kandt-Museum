@@ -18,7 +18,7 @@ var card = elements.create('card', {
 // Add an instance of the card Element into the `card-element` <div>.
 card.mount('#card-element');
 
-document.querySelector('#payment-form button').classList = 'btn btn-primary btn-large btn-block';
+document.querySelector('#payment-form button').classList = 'btn btn-primary btn-large btn-block ladda-button';
 card.addEventListener('change', function(event) {
 	var displayError = document.getElementById('card-errors');
 	if (event.error) {
