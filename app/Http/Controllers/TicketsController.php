@@ -3,14 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Exhibition;
+use App\Mail\BookingMail;
 use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class TicketsController extends Controller
 {
+    public function __construct()
+    {
+        // Middleware only applied to these methods
+        $this->middleware('auth', ['only' => [
+            'edit', // Could add bunch of more methods too
+        ]]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -102,8 +111,21 @@ class TicketsController extends Controller
                     'user_id' => Auth::user()->id,
                     'slug' => $slug,
                 ]);
+            $messages = [
+                'names' => $request->get('names'),
+                'phone' => $request->get('phone'),
+                'email' => $request->get('email'),
+                'exhibition_title' => $request->get('exhibition_title'),
+                'exhibition_description' => $request->get('exhibition_description'),
+                'slug' => $slug,
+            ];
+
+            if (Mail::to($request->input('email'))->send(new BookingMail($messages))) {
+
+            }
             Alert::success('booking done successfully', 'please check your email for more...')->persistent('Close');
             return \redirect()->route('events.index');
+
         }
     }
 

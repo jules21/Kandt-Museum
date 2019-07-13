@@ -76,6 +76,6 @@ class StripePaymentController extends Controller
         Mail::to($request->input('email'))->send(new BuyMail($messages));
 
         Alert::success('THANKS FOR SHOPPING WITH US', 'please check your email for more...')->persistent('Close');
-        return Redirect::to('artifacts');
+        return Redirect::to('artifact');
     }
 }
