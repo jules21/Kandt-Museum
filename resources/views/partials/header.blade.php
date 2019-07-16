@@ -9,8 +9,8 @@
                 </div>
                 <div class="col-6 top-head-right">
                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        {{-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="#"><i class="fa fa-twitter"></i></a></li> --}}
                       {{-- <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                       <li><a href="#"><i class="fa fa-behance"></i></a></li> --}}
                     </ul>

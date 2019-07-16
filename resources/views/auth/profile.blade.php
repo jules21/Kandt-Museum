@@ -50,15 +50,15 @@
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Names </label>
+                                                    <label>First Name </label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>{{$user->name}}</p>
+                                                    <p>{{$user->firstName}}</p>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>First Name </label>
+                                                    <label>Last Name </label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>{{$user->lastName}}</p>
