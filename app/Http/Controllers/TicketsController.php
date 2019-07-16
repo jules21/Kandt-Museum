@@ -67,7 +67,10 @@ class TicketsController extends Controller
             ->latest()->limit(5)
             ->get();
         $event = Exhibition::find($id);
-        $products = DB::table('artifacts')->where('affordable', '=', 1)->get();
+        $products = DB::table('artifacts')
+        ->where('affordable', '=', 1)
+        ->latest()->limit(4)
+        ->get();
         return view('home.single-event', compact('artifacts', 'event', 'products'));
     }
 

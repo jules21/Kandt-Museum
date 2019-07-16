@@ -95,7 +95,7 @@
                                             {{ $product->description }}
                                     </p>
                                     <div class="meta-bottom d-flex justify-content-between">
-                                        <a href="#" class="primary-btn text-uppercase">Buy it!</a>
+                                        <a href="{{url('payment/'.$product->id)}}" class="primary-btn text-uppercase">Buy it!</a>
                                     </div>									
                                 </div>	
                                 @endforeach

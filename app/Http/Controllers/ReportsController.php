@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Charts\VisitorChart;
 use App\Exhibition;
 use App\Transaction;
+use App\Ticket;
 
 class ReportsController extends Controller
 {
@@ -32,7 +33,7 @@ class ReportsController extends Controller
     }
     public function eventvisitors()
     {
-        $exhibitions = Exhibition::all();
+        $exhibitions = Ticket::all();
         return view('reports.eventvisitor', compact('exhibitions'));
     }
 }

@@ -47,7 +47,7 @@
                                                 <th>{{$artifact->email}}</th>
                                                 <th>{{$artifact->product}}</th>
                                                 <th>{{$artifact->amount}} RWF</th>
-                                                <th>{{$artifact->created_at}}</th>
+                                                <th>{{$artifact->created_at->toDateString() }}</th>
                                                 <th>{{ str_limit($artifact->details, $limit = 75, $end = '...') }}</th>
                                                 
                                             </tr>

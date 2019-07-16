@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title','Sold exhibitions')
+@section('title',' booked exhibitions')
 @section('content')
         <!-- ============================================================== -->
         <!-- Start right Content here -->
@@ -11,7 +11,7 @@
                     <hr>
                         <div class="row col-lg-12">
                                 <div class="card m-b-30 card-body text-center">
-                                    <h4 class="card-title font-16 mt-0">Sold exhibitions Report</h4>
+                                    <h4 class="card-title font-16 mt-0">booked exhibitions Report</h4>
                                     {{-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                     <a href="#" class="btn btn-primary waves-effect waves-light">Go somewhere</a> --}}
                                 </div>
@@ -46,7 +46,7 @@
                                                 <th>{{$exhibition->phone}}</th>
                                                 <th>{{$exhibition->exhibition_title}}</th>
                                                 <th>{{$exhibition->slug}}</th>
-                                                <th>{{$exhibition->created_at}}</th>
+                                                <th>{{$exhibition->created_at->toDateString()}}</th>
                                                 
                                             </tr>
                                             @endforeach
