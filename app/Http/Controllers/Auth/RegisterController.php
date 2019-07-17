@@ -31,13 +31,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-         public function redirectTo(){
+protected $redirectTo = 'events';
 
-
-            if (Auth()->user()->isManager()) {
-                return '/events';
-            } 
-    }
 
     /**
      * Create a new controller instance.
