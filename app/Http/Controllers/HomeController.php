@@ -175,7 +175,16 @@ class HomeController extends Controller
     }
     public function artifact()
     {
-        $products = DB::table('artifacts')->where('affordable', '=', 1)->get();
+        $productz = DB::table('artifacts')->where('affordable', '=', 1)->get();
+
+        $products = $productz->filter(function ($product) {
+
+            $soldproducts = DB::table('transactions')->get();
+            foreach ($soldproducts as $soldproduct) {
+                return $product->id != $soldproduct->product_id;
+            }
+        });
+        
         return view('home.artifacts', compact('products'));
     }
     public function booking($id)

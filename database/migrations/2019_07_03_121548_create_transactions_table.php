@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTransactionsTable extends Migration
 {
@@ -18,6 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->string('customer_id');
             $table->string('names')->default('user');
             $table->string('email')->default('email');
+            $table->integer('product_id');
             $table->string('product')->default('email');
             $table->string('amount')->default('email');
             $table->string('currency')->default('email');

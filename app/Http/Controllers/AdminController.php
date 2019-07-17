@@ -18,7 +18,7 @@ class AdminController extends Controller
         $chart_options2 = [
             'chart_title' => 'monthly Visitor',
             'report_type' => 'group_by_date',
-            'model' => 'App\Exhibition',
+            'model' => 'App\Ticket',
             'group_by_field' => 'created_at',
             'group_by_period' => 'month',
             'chart_type' => 'bar',

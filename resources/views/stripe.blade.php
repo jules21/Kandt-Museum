@@ -18,6 +18,7 @@
 
    <form action=" {{route('stripe.post')}} " method="post" id="payment-form">
     @csrf
+    <input type="hidden" name="p_id" value="{{$product->id}}">
     <input type="hidden" name="amount" value="{{$product->amount}}">
     <input type="hidden" name="product_name" value="{{$product->name}}">
     <input type="hidden" name="product_description" value="{{$product->description}}">

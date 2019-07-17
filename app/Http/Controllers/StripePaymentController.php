@@ -57,6 +57,7 @@ class StripePaymentController extends Controller
             // 'user_id' => Auth::user()->id,
             'names' => $request->firstname . " " . $request->lastname,
             'email' => $request->email,
+            'product_id' => $request->p_id,
             'product' => $request->product_name,
             'amount' => $charge->amount,
             'currency' => $charge->currency,
