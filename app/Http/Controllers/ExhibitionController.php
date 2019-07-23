@@ -87,7 +87,7 @@ class ExhibitionController extends Controller
     public function edit(Exhibition $exhibition)
     {
         $exhibition = Exhibition::find($exhibition->id);
-        return view('exhibition.edit', compact('exhibition'));
+        return view('exhibition.edit', compact('artifact'));
     }
 
     /**

@@ -45,12 +45,9 @@
                 <div class="form-group row" id="price"><label for="example-text-input" class="col-sm-2 col-form-label">Price </label>
                     <div class="col-sm-10">
                             <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text">$</span>
-                                    </div>
                                     <input type="number" min="0" class="form-control" name="price" aria-label="Amount (to the nearest dollar)" required>
                                     <div class="input-group-append">
-                                      <span class="input-group-text">.00</span>
+                                      <span class="input-group-text">RWF</span>
                                     </div>
                                   </div>
                         {{-- <input class="form-control" type="number" min="0" id="example-text-input" name="price"> --}}

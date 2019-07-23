@@ -29,7 +29,7 @@
 						<h1 class="text-white">
 						@yield('page')	
 						</h1>
-						<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> @yield('page')</a></p>
+						<p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>@yield('page')</p>
 					</div>
 				</div>
 			</div>

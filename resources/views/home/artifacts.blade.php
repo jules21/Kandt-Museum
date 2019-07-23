@@ -26,7 +26,7 @@
 							{{$product->description}}
 					</p>
 					<div class="meta-bottom d-flex justify-content-start">
-						<p class="price">${{$product->amount}}.00</p>
+						<p class="price">{{$product->amount}} RWF</p>
 					</div>									
 				</div>
 				@endforeach

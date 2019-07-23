@@ -18,9 +18,7 @@
 							<h1 class="text-white">
 								Exhibition on Modern Era
 							</h1>
-							{{-- <p class="pt-20 pb-20 text-white">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.  sed do eiusmod tempor incididunt..
-							</p> --}}
+
 							<a href="#about" class="primary-btn text-uppercase mt-5">Learn More</a>
 						</div>
 					</div>

@@ -17,11 +17,9 @@ Route::get('chart', 'ReportsController@chart');
 Route::get('payment/{id?}', 'StripePaymentController@stripe');
 Route::post('payment', 'StripePaymentController@stripePost')->name('stripe.post');
 
-// Route::get('contact-us', 'ContactUSController@contactUS');
-// Route::post('contact-us', ['as' => 'contactus.store', 'uses' => '   @contactUSPost']);
-//
-Route::get('/barcode', 'HomeController@barcode');
+
 Route::get('/', 'HomeController@index');
+Route::get('/barcode', 'HomeController@barcode');
 Route::get('/artifact', 'HomeController@artifact');
 Route::get('/ticket', 'HomeController@ticket')->middleware(['auth']);
 Route::get('/booking/{id?}', 'HomeController@booking')->middleware(['auth'])->name('event.booking');

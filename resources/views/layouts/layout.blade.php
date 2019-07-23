@@ -92,10 +92,6 @@
                             <ul class="submenu">
                                 <li><a href="{{route('artifact.index')}}">All Artifacts</a></li>
                                 <li><a href="{{route('artifact.create')}}">Add New Artifact</a></li>
-
-                                {{-- <li><a href="{{route('institutions.index')}}">All Institutions</a></li> --}}
-                                {{-- <li><a href="{{route('institutions.create')}}">Add New Institution</a></li> --}}
-<!--                                <li><a href="email-read.html">Intitution Members</a></li>-->
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="waves-effect"><i class="fas fa-university"></i><span> Artifact Category <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>

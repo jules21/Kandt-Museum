@@ -350,7 +350,7 @@
                     <tr>
                       <td>
                         <p>Hi there,</p>
-                        <p>Thank you so much for Buying with At Kandt art Museum! </p>
+                        <p>Thank you so much for Booking your entry to Kandt art Museum! </p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
