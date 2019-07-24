@@ -98,10 +98,15 @@ class ArtifactController extends Controller
         } else {
             $artifact->affordable = 0;
         }
+        
+        // $destinationPath = public_path('images/artifacts');
+        // $photo = $request->file('photo');
+        // $filename = time() . $photo->getClientOriginalName();
+        // $photo->move($destinationPath, $filename);
+        // $artifact->photo = $filename;
 
-        // if($request->get('photo') == null){
-        //     $artifact->save();
-        // }else{
+        // // if($request->get('photo') != null){            
+        
         //     $photo = $request->file('photo');
         //     $destinationPath = public_path('images/artifacts');
         //     $allowedfileExtension=['jpeg','jpg','png'];
@@ -109,12 +114,13 @@ class ArtifactController extends Controller
         //     $extension = $photo->getClientOriginalName();
         //     $check=in_array($extension,$allowedfileExtension);
         //     if ($check) {
-
-        //     @unlink(public_path('/images/artifacts/' . $image));
+        //     // @unlink(public_path('/images/artifacts/' . $image));
         //         $filename = time() . $photo->getClientOriginalName();
-        //         $photo->move($destinationPath, $filename);
-
-        //         $artifact->year=$filename;
+        //         $photo->move($destinationPath, $filename); 
+        //         $artifact->photo = $filename;               
+        //     }
+            
+        // // }
 
         if ($artifact->save()) {
             return redirect()->route('artifact.index')->with('success', 'You have updated artifact named ' . $artifact->name);

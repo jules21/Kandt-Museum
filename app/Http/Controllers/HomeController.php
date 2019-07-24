@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-
+use App\VisitSchedule;
 
 class HomeController extends Controller
 {
@@ -93,7 +93,8 @@ class HomeController extends Controller
     }
     public function workTime()
     {
-        return view('home.work');
+        $works = VisitSchedule::all();
+        return view('home.work', compact('works'));
     }
     public function bookNow($request)
     {

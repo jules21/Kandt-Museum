@@ -12,42 +12,35 @@
                 <div class="card-body">
                           @include('partials.success')
         @include('partials.error')
-                        <form action="{{route('artifact.update', $artifact->id)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('exhibitions.update', $exhibition->id)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="_method" value="put">
-                      <div class="form-group row"><label for="example-text-input" class="col-sm-2 col-form-label">artifact Title</label>
-                        <div class="col-sm-10"><input class="form-control" type="text" value="{{$artifact->name}}" id="example-text-input" name="name"></div>
+                      <div class="form-group row"><label for="example-text-input" class="col-sm-2 col-form-label">exhibition Title</label>
+                        <div class="col-sm-10"><input class="form-control" type="text" value="{{$exhibition->title}}" id="example-text-input" name="title"></div>
                     </div>
-                        <div class="form-group row"><label for="example-text-input" class="col-sm-2 col-form-label">Author </label>
-                        <div class="col-sm-10"><input class="form-control" type="date" value="{{$artifact->year}}" id="example-text-input" name="year"></div>
+                        <div class="form-group row"><label for="example-text-input" class="col-sm-2 col-form-label">Date </label>
+                        <div class="col-sm-10"><input class="form-control" type="date" value="{{$exhibition->date}}" id="example-text-input" name="year"></div>
+                    </div>
+                        <div class="form-group row"><label for="example-text-input" class="col-sm-2 col-form-label">Time </label>
+                        <div class="col-sm-10"><input class="form-control" type="time" value="{{$exhibition->time}}" id="example-text-input" name="time"></div>
                     </div>
 
                      <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
-                                        <img src="{{ asset('images/artifacts/'.$artifact->photo) }}" alt="" class="img-field">
+                                        <img src="{{ asset('images/exhibitions/'.$exhibition->photo) }}" alt="" width="300" height="250">
                                         <input class="form-control" type="file" id="example-number-input" name="photo">
                                     </div>
                                 </div>
 
-                               <div class="form-group row"><label class="col-sm-2 col-form-label">Category</label>
-                    <div class="col-sm-10">
-                           <select class="custom-select" name="category_id" id="artifact">
-                            @foreach($categories as $category)
-                              <option value="{{$category->id}}" @php if($category->id == $artifact->artifact_category_id) echo "selected"; @endphp>{{$category->name}}</option>
-                            @endforeach                           
-                            
-                        </select></div>
-                </div>
-
                 <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10"><textarea required class="form-control" rows="5" name="description">
-                    {{$artifact->description}}
+                    {{$exhibition->description}}
                 </textarea></div>
                 </div>
 
 
             <div class="form-group row m-t-20">
-            <div class="col-12 text-right"><button class="btn btn-warning w-md waves-effect waves-light" type="submit">{{ __('edit artifact info') }}</button></div>
+            <div class="col-12 text-right"><button class="btn btn-warning w-md waves-effect waves-light" type="submit">{{ __('edit Exhibition info') }}</button></div>
         </div>
                                  
                       </form>          

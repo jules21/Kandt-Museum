@@ -10,7 +10,7 @@
 							</p>
 							<p class="footer-text">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |  made by GIHOZO Audrey
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
 							</p>
 						</div>
 					</div>

@@ -35,8 +35,8 @@
 							  <span class="lnr lnr-clock"></span>
 							  <h4>Openning Hours</h4>
 							  <p>
-							  	Mon - Fri: 10.00am to 05.00pm
-								Sat: 12.00pm to 03.00 pm
+								Mon - Fri: 8.00am to 05.00pm
+								Sat: 10.00pm to 03.00 pm
 								Sunday Closed
 							  </p>
 							  <div class="overlay">
@@ -54,8 +54,8 @@
 							  <span class="lnr lnr-rocket"></span>
 							  <h4>Ongoing Exhibitions</h4>
 							  <p>
-							  	Mon - Fri: 10.00am to 05.00pm
-								Sat: 12.00pm to 03.00 pm
+							  	Mon - Fri: 8.00am to 05.00pm
+								Sat: 10.00pm to 03.00 pm
 								Sunday Closed
 							  </p>
 							  <div class="overlay">
@@ -73,8 +73,8 @@
 							  <span class="lnr lnr-briefcase"></span>
 							  <h4>best affordable artifacts</h4>
 							  <p>
-							  	Mon - Fri: 10.00am to 05.00pm
-								Sat: 12.00pm to 03.00 pm
+								Mon - Fri: 8.00am to 05.00pm
+								Sat: 10.00pm to 03.00 pm
 								Sunday Closed
 							  </p>
 							  <div class="overlay">

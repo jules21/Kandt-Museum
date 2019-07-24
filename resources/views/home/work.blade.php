@@ -1,6 +1,6 @@
 @extends('layouts.main');
-@section('title', 'About Us')
-@section('page', 'About Us')
+@section('title', 'Visit Schedule')
+@section('page', 'Visit Schedule')
 
 @section('content')
 {{-- style --}}<style>
@@ -46,17 +46,21 @@
 </style>{{-- content --}}
 <div class="container demo-bg">
     <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4 md-offset-2">
     <div class="business-hours">
     <h2 class="title">Opening Hours</h2>
     <ul class="list-unstyled opening-hours">
-    <li>Sunday <span class="pull-right">Closed</span></li>
+    {{-- <li>Sunday <span class="pull-right">Closed</span></li>
     <li>Monday <span class="pull-right">9:00-22:00</span></li>
     <li>Tuesday <span class="pull-right">9:00-22:00</span></li>
     <li>Wednesday <span class="pull-right">9:00-22:00</span></li>
     <li>Thursday <span class="pull-right">9:00-22:00</span></li>
     <li>Friday <span class="pull-right">9:00-23:30</span></li>
-    <li>Saturday <span class="pull-right">14:00-23:30</span></li>
+    <li>Saturday <span class="pull-right">14:00-23:30</span></li> --}}
+        @foreach ($works as $work)
+        <li>{{$work->days_of_week}} <span class="pull-right">{{$work->start_time}}-{{$work->end_time}}</span></li>
+        @endforeach
+
     </ul>
     </div>
     </div>

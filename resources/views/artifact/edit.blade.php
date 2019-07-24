@@ -25,7 +25,7 @@
                      <div class="form-group row"><label for="example-number-input" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
                                         <img src="{{ asset('images/artifacts/'.$artifact->photo) }}" alt="" class="img-field" width="300" height="250">
-                                        <input class="form-control" type="file" id="example-number-input" name="photo">
+                                    <input class="form-control" type="file" id="example-number-input" name="photo" value="{{ asset('images/artifacts/'.$artifact->photo) }}">
                                     </div>
                                 </div>
 
@@ -38,12 +38,24 @@
                             
                         </select></div>
                 </div>
-
+                
                 <div class="form-group row">
                     <label for="example-text-input" class="col-sm-2 col-form-label">Sell it? </label>
                     <div class="col-sm-10">
                             <input type="checkbox" id="switch3" switch="bool" {!! $artifact->affordable?"checked":""!!} name="affordable">
                             <label for="switch3" data-on-label="Yes" data-off-label="No"></label>
+                    </div>
+                </div>
+                <div class="form-group row" id="price">
+                    <label for="example-text-input" class="col-sm-2 col-form-label">Price </label>
+                    <div class="col-sm-10">
+                            <div class="input-group mb-3">
+                                    <input type="number" min="0" class="form-control" name="price" aria-label="Amount" value="{!! $artifact->amount !!}" >
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">RWF</span>
+                                    </div>
+                                  </div>
+                        {{-- <input class="form-control" type="number" min="0" id="example-text-input" name="price"> --}}
                     </div>
                 </div>
 
@@ -68,5 +80,16 @@
         </div>
 </div>
         
-
+<script>
+checkbox = document.getElementById('switch3');
+checkbox.addEventListener('click', ()=>{
+    if(!checkbox.checked){
+        // console.log('checked');
+        document.getElementById('price').style.display = 'none';
+    }else{
+        document.getElementById('price').style.display = '';
+    }
+    
+})
+</script>
 @endsection

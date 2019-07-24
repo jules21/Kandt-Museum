@@ -87,7 +87,7 @@ class ExhibitionController extends Controller
     public function edit(Exhibition $exhibition)
     {
         $exhibition = Exhibition::find($exhibition->id);
-        return view('exhibition.edit', compact('artifact'));
+        return view('exhibition.edit', compact('exhibition'));
     }
 
     /**
@@ -99,8 +99,46 @@ class ExhibitionController extends Controller
      */
     public function update(Request $request, Exhibition $exhibition)
     {
-        //
+        // dd($request->all());
+        $exhibition = Exhibition::find($exhibition->id);
+
+        $exhibition->title = $request->get('title');
+        $exhibition->description = $request->get('description');
+        $exhibition->date = $request->get('year');
+        $exhibition->time = $request->get('time');
+        // $exhibition->photo = $request->get('photo');
+       
+        
+        // // $destinationPath = public_path('images/exhibitions');
+        // // $photo = $request->file('photo');
+        // // $filename = time() . $photo->getClientOriginalName();
+        // // $photo->move($destinationPath, $filename);
+        // // $exhibition->photo = $filename;
+
+        // // // if($request->get('photo') != null){            
+        
+        // //     $photo = $request->file('photo');
+        // //     $destinationPath = public_path('images/exhibitions');
+        // //     $allowedfileExtension=['jpeg','jpg','png'];
+
+        // //     $extension = $photo->getClientOriginalName();
+        // //     $check=in_array($extension,$allowedfileExtension);
+        // //     if ($check) {
+        // //     // @unlink(public_path('/images/exhibitions/' . $image));
+        // //         $filename = time() . $photo->getClientOriginalName();
+        // //         $photo->move($destinationPath, $filename); 
+        // //         $exhibition->photo = $filename;               
+        // //     }
+            
+        // // // }
+
+        if ($exhibition->save()) {
+            return redirect()->route('exhibitions.index')->with('success', 'You have updated exhibiton Titled ' . $exhibition->title);
+        } else {
+            return back()->withInput();
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -108,16 +146,14 @@ class ExhibitionController extends Controller
      * @param  \App\Exhibition  $exhibition
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Exhibition $exhibition)
+    public function destroy($id)
     {
-        $exhibition = Exhibition::where('id', $exhibition->id)->first();
-
+        $exhibition = Exhibition::where('id', $id)->first();
         $image = $exhibition->photo;
-
         if ($exhibition->delete()) {
             # code...
             @unlink(public_path('/images/exhibitions/' . $image));
-            return redirect()->route('exhibition.index')->with('success', 'exhibition deleted Successfully');
+            return redirect()->back()->with('success', 'exhibition deleted Successfully');
         } else {
             return redirect()->back()->withInput();
         }
