@@ -163,9 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
-        ConsoleTVs\Charts\ChartsServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-
 
         /*
          * Package Service Providers...
@@ -236,7 +234,6 @@ return [
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-
 
     ],
 
